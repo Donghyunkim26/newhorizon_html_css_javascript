@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="diet.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+  <script defer src="diet.js"></script>
+  <title>Fit Plan — BMI-Based Diet Tool</title>
+
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="site-logo" href="Horizon_home.html">
+        <img src="images/Horizon_logo.jpg" alt="New Horizon logo">
+        <span>NEW HORIZON</span>
+      </a>
+    </nav>
+
+    <header>
+
+      <nav class="page-switcher" aria-label="Health tools">
+        <a class="page-switch-link" href="healthprofile.html">BMI calculator</a>
+        <a class="page-switch-link active" href="diet.html">BMI diet plan</a>
+      </nav>
+      <div class="eyebrow">FIT PLAN</div>
+      <h1>A weight loss plan built around your BMI</h1>
+      <p>Enter your details to get a realistic calorie target, macro split, and sample daily meal plan — based on your
+        BMI and activity level, not a one-size-fits-all number.</p>
+    </header>
+
+    <div class="disclaimer">This tool gives general guidance only and isn't a substitute for advice from a doctor or
+      registered dietitian — especially if you have a health condition or take medication.</div>
+
+    <div class="card">
+      <h2>Your details</h2>
+
+      <div class="row-3">
+        <div class="field">
+          <label>Age</label>
+          <input type="number" id="age" placeholder="30">
+        </div>
+        <div class="field">
+          <label for="sex">Sex</label>
+          <select id="sex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="activity">Activity level</label>
+          <select id="activity">
+            <option value="1.2">Sedentary (desk job, little exercise)</option>
+            <option value="1.375" selected>Light (1–3 workouts/week)</option>
+            <option value="1.55">Moderate (3–5 workouts/week)</option>
+            <option value="1.725">Active (6–7 workouts/week)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label>Height (cm)</label>
+          <input type="number" id="height" placeholder="170">
+        </div>
+        <div class="field">
+          <label>Weight (kg)</label>
+          <input type="number" id="weight" placeholder="80">
+        </div>
+      </div>
+
+      <button class="btn-calc" id="buildBtn">Build my plan</button>
+    </div>
+
+    <div class="results" id="results"></div>
+
+  </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --ink: #202b25;
+    --muted: #718078;
+    --cream: #fbf8ef;
+    --green: #3f9460;
+    --deep-green: #163d2b;
+    --lime: #e4f0d9;
+    --line: #dce8dc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.reading-progress {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--green);
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin: auto;
+    padding: 24px 32px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--green);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.logo-mark {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #c7bfbf;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.site-nav a:hover {
+    color: var(--green);
+}
+
+.back-link {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.back-link:hover,
+.toc a:hover {
+    color: var(--green);
+}
+
+.food-hero {
+    position: relative;
+    display: grid;
+    height: 300px;
+    place-items: center;
+    overflow: hidden;
+    background: url('images/healthy-avo-food.avif') center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(22, 61, 43, .82), rgba(22, 61, 43, .17));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, 100%);
+    padding: 78px 32px;
+    color: #fff;
+}
+
+.eyebrow,
+.toc-label {
+    margin-bottom: 14px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.hero-content .eyebrow {
+    color: #d9f0c7;
+}
+
+.hero-content h1 {
+    max-width: 650px;
+    margin-bottom: 20px;
+    font-size: clamp(50px, 7vw, 88px);
+    line-height: .98;
+}
+
+.hero-content>p:not(.eyebrow) {
+    max-width: 540px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.hero-action {
+    display: inline-block;
+    padding: 13px 19px;
+    border: 1px solid rgba(255, 255, 255, .72);
+    color: #fff;
+    font-size: 14px;
+}
+
+.hero-action:hover {
+    background: #d9f0c7;
+    color: var(--deep-green);
+}
+
+.page-layout {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 760px);
+    gap: 70px;
+    max-width: 1010px;
+    margin: 0 auto;
+    padding: 96px 32px;
+}
+
+.toc {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    padding-top: 8px;
+}
+
+.toc-label {
+    color: var(--ink);
+}
+
+.toc a {
+    display: block;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.toc a.active {
+    color: var(--green);
+    font-weight: 700;
+}
+
+.content-column section {
+    scroll-margin-top: 30px;
+}
+
+.intro-section {
+    padding-bottom: 94px;
+}
+
+.intro-section h2,
+h2 {
+    margin-bottom: 20px;
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.08;
+}
+
+.intro-section h2 {
+    max-width: 620px;
+}
+
+.intro-section>p:not(.eyebrow),
+.section-lead,
+.support-copy>p:last-child {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.intro-section>p+p {
+    margin-top: 18px;
+}
+
+.benefits-section,
+.plate-section,
+.habits-section {
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-heading {
+    margin-bottom: 32px;
+}
+
+.section-heading h2 {
+    max-width: 600px;
+}
+
+.section-lead {
+    margin: -4px 0 32px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.benefit-card {
+    padding: 28px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .5);
+}
+
+.benefit-card-accent {
+    background: var(--lime);
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+.card-heading span,
+.plate-item>span,
+.habit-item>span {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.card-heading h3 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.benefit-card p,
+.plate-item p,
+.habit-item p {
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.section-note {
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.plate-layout {
+    display: grid;
+    grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.plate-image {
+    position: relative;
+}
+
+.plate-image img {
+    display: block;
+    width: 100%;
+    height:260px;
+    object-fit: cover;
+}
+
+.plate-image span {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    padding: 9px 11px;
+    background: rgba(22, 61, 43, .87);
+    color: #fff;
+    font-size: 12px;
+}
+
+.plate-list,
+.habit-list {
+    border-top: 1px solid var(--line);
+}
+
+.plate-item {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.plate-item h3 {
+    margin: -4px 0 0;
+    font-size: 23px;
+}
+
+.plate-item p {
+    margin-top: 8px;
+}
+
+.habit-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.habit-item h3 {
+    margin: -4px 0 8px;
+    font-size: 23px;
+}
+
+.habit-item p {
+    margin: 0;
+}
+
+.support-section {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 28px;
+    align-items: center;
+    margin-top: 35px;
+    padding: 28px;
+    background: var(--deep-green);
+    color: #fff;
+}
+
+.support-image img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.support-copy .eyebrow {
+    color: #d9f0c7;
+}
+
+.support-copy h2 {
+    margin-bottom: 14px;
+}
+
+.support-copy>p:last-child {
+    color: #dce8dc;
+    font-size: 15px;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    cursor: pointer;
+}
+
+.back-to-top.visible {
+    display: block;
+}
+
+@media (max-width:700px) {
+    .site-header {
+        flex-wrap: wrap;
+        gap: 14px;
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .logo-mark {
+        width: 40px;
+        height: 40px;
+    }
+
+    .site-nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 12px;
+    }
+
+    .back-link {
+        font-size: 12px;
+    }
+
+    .food-hero {
+        min-height: 560px;
+        background-position: 62% center;
+    }
+
+    .hero-content {
+        align-self: end;
+        padding: 48px 20px;
+    }
+
+    .page-layout {
+        display: block;
+        padding: 64px 20px;
+    }
+
+    .toc {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 18px;
+        margin-bottom: 54px;
+    }
+
+    .toc-label {
+        flex-basis: 100%;
+    }
+
+    .toc a {
+        padding: 5px 0;
+        border-top: 0;
+    }
+
+    .benefits-grid,
+    .plate-layout,
+    .support-section {
+        grid-template-columns: 1fr;
+    }
+
+    .plate-image img {
+        height: 280px;
+    }
+
+    .support-section {
+        padding: 24px;
+    }
+}

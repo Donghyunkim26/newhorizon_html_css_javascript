@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Horizon_goal.css">
+<link rel="stylesheet" href="calendar.css">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+
+<title>My Goals — New Horizon</title>
+
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="back-link" href="Horizon_dashboard.html"><i class="bx bx-arrow-back"></i> Dashboard</a>
+      <p class="header-kicker">YOUR NEXT HORIZON</p>
+      <h1>Small steps.<br><em>Meaningful progress.</em></h1>
+      <p>Track what you're working toward and keep your momentum visible.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="add-goal">
+      <div class="add-goal-heading">
+        <div>
+          <span class="add-goal-label">Set an intention</span>
+          <h2>What would you like to work on?</h2>
+        </div>
+        <i class="bx bx-target-lock" aria-hidden="true"></i>
+      </div>
+      <form id="goalForm">
+        <input type="text" id="goalInput" placeholder="e.g. Walk for 20 minutes" maxlength="120" required>
+        <button type="submit"><i class="bx bx-plus"></i> Add goal</button>
+      </form>
+    </div>
+
+    <div class="goals-toolbar">
+      <h2>Your goals</h2>
+      <div class="filters" role="group" aria-label="Filter goals">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="active">Active</button>
+        <button data-filter="done">Completed</button>
+      </div>
+    </div>
+
+    <div class="goal-list" id="goalList"></div>
+    <div class="empty" id="emptyState" style="display:none;">No goals here yet.</div>
+
+    <section class="calendar-section" aria-labelledby="calendar-title">
+      <div class="calendar-intro">
+        <div>
+          <span class="add-goal-label">Plan your progress</span>
+          <h2 id="calendar-title">Goals calendar</h2>
+          <p>Add goals above or type an event below. Both will appear on the selected day.</p>
+        </div>
+        <i class="bx bx-calendar" aria-hidden="true"></i>
+      </div>
+      <div class="calendar-head">
+        <div><p class="calendar-label">ACTIVITY CALENDAR</p><h3 id="monthLabel">Month Year</h3></div>
+        <div class="calendar-nav">
+          <button id="prev" type="button" aria-label="Previous month">&#8592;</button>
+          <button class="today-btn" id="todayBtn" type="button">Today</button>
+          <button id="next" type="button" aria-label="Next month">&#8594;</button>
+        </div>
+      </div>
+      <div class="calendar-grid">
+        <div class="calendar-dow"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+        <div class="calendar-days" id="days"></div>
+      </div>
+      <div class="calendar-panel">
+        <div class="calendar-panel-head"><b id="selLabel">Select a day</b></div>
+        <div class="streak-tools">
+          <div class="streak-summary"><strong id="streakCount">0</strong><span>day streak</span></div>
+          <button class="check-in-btn" id="checkInBtn" type="button">Track this day</button>
+        </div>
+        <div class="event-list" id="evtList"></div>
+      </div>
+    </section>
+  </div>
+
+<script src="auth.js"></script>
+<script src="calendar.js" defer></script>
+<script src="horizon_goal.js" defer></script>
+</body>
+</html>

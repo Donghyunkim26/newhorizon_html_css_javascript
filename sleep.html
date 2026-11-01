@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Pattern Check</title>
+    <link rel="stylesheet" href="sleep.css">
+
+</head>
+
+<body>
+
+    <header class="site-nav" id="top">
+        <a href="Horizon_home.html" class="site-logo">
+            <img class="site-logo-mark" src="images/Horizon_logo.jpg" alt="New Horizon Logo">
+            <span>NEW HORIZON</span>
+        </a>
+
+        <nav class="site-navbar" aria-label="Primary">
+            <a href="Horizon_home.html" class="active">Home</a>
+            <a href="Horizon_dashboard.html">Dashboard</a>
+            <a href="Horizon_home.html#about">About</a>
+        </nav>
+
+        <a href="contact.html" class="site-nav-cta">Contact Us</a>
+    </header>
+
+    <div class="wrap">
+
+        <button class="back-explore-button" id="backToExploreButton" type="button">&larr; Back to Explore</button>
+
+        <header>
+            <div class="eyebrow">SLEEP PATTERN CHECK</div>
+            <h1>How's your sleep been lately?</h1>
+            <p>Log your typical night and get an honest read on what's helping — and what's quietly working against you.
+            </p>
+        </header>
+
+        <div class="card form-card">
+            <h2>Your typical night</h2>
+            <p class="hint">Base this on a normal weeknight, not your best or worst.</p>
+
+            <div class="row-2">
+                <div class="field">
+                    <label for="bedtime">Usual bedtime</label>
+                    <input type="time" id="bedtime" value="23:00">
+                </div>
+                <div class="field">
+                    <label for="waketime">Usual wake time</label>
+                    <input type="time" id="waketime" value="06:30">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="consistency">How consistent is your sleep schedule? <span class="val" id="consistVal">Fairly
+                        consistent</span></label>
+                <input type="range" id="consistency" min="0" max="2" value="1">
+                <div class="scale"><span>Varies a lot</span><span>Very consistent</span></div>
+            </div>
+
+            <div class="field">
+                <label for="wakeups">Times you wake up during the night <span class="val"
+                        id="wakeupsVal">1</span></label>
+                <input type="range" id="wakeups" min="0" max="5" value="1">
+                <div class="scale"><span>0</span><span>3h+</span></div>
+            </div>
+
+            <div class="field">
+                <label for="screen">Screen time before bed <span class="val" id="screenVal">0h</span></label>
+                <input type="range" id="screen" min="0" max="3" value="0">
+                <div class="scale"><span>0h</span><span>3h+</span></div>
+            </div>
+
+            <div class="field">
+                <span class="field-legend">Which of these apply to your evenings?</span>
+                <div class="toggle-row" id="toggleRow" role="group" aria-label="Evening habits">
+                    <button type="button" class="toggle" data-key="caffeine" aria-pressed="false">☕ Caffeine after
+                        3pm</button>
+                    <button type="button" class="toggle" data-key="wind" aria-pressed="false">🌙 Have a wind-down
+                        routine</button>
+                    <button type="button" class="toggle" data-key="dark" aria-pressed="false">🕶️ Room is dark and
+                        quiet</button>
+                    <button type="button" class="toggle" data-key="nap" aria-pressed="false">😴 Nap most days</button>
+                </div>
+            </div>
+
+            <button class="btn-check" id="checkBtn" type="button">Check my sleep pattern</button>
+        </div>
+
+        <div class="results" id="results" aria-live="polite">
+            <div class="score-card">
+                <div class="ring" id="ring">
+                    <div class="ring-inner">
+                        <div class="num" id="scoreNum">0</div>
+                        <div class="label">out of 100</div>
+                    </div>
+                </div>
+                <h3 id="scoreTitle">Your sleep score</h3>
+                <p id="scoreMsg"></p>
+            </div>
+
+            <div class="breakdown" id="breakdown"></div>
+
+            <div class="tips">
+                <h3>Where to focus tonight</h3>
+                <ul id="tipsList"></ul>
+            </div>
+        </div>
+
+    </div>
+    <script src="sleep.js"></script>
+</body>
+
+</html>

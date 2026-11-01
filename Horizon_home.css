@@ -1,0 +1,843 @@
+/* =========================================================
+   GLOBAL RESET
+   Removes default browser spacing and applies consistent
+   sizing and text styles across the whole website.
+   ========================================================= */
+
+* {
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+
+    /* Makes width/height include padding and borders */
+    box-sizing: border-box;
+
+    /* Enables smooth scrolling when navigating to sections */
+    scroll-behavior: smooth;
+
+    /* Adds space above sections when scrolling to anchors */
+    scroll-padding-top: 1rem;
+
+    /* Removes default list styling */
+    list-style: none;
+
+    /* Removes default link underlines */
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   CSS VARIABLES
+   Stores commonly used colours so they can be reused
+   throughout the website.
+   ========================================================= */
+
+:root {
+    /* Main turquoise accent colour */
+    --main-color: #5eead4;
+
+    /* Main text colour */
+    --text-color: #e6f4ff;
+
+    /* Main dark background colour */
+    --bg-color: #071a2c;
+
+    /* Slightly lighter background */
+    --soft-bg: #0f2742;
+
+    /* Semi-transparent card background */
+    --card-bg: rgba(7, 26, 44, 0.72);
+}
+
+
+/* =========================================================
+   SECTION SETTINGS
+   Adds consistent spacing to every section.
+   ========================================================= */
+
+section {
+    padding: 4rem 0 2rem;
+
+    /* Prevents fixed navigation from covering section titles */
+    scroll-margin-top: 110px;
+}
+
+/* =========================================================
+   Feature card button / Images Fitting
+   ========================================================= */
+img {
+    width: 100%;
+}
+
+.card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #08111e;
+    background-color: #a4ea34;
+    transition: background-color 0.2s ease, gap 0.2s ease;
+}
+
+.card-btn:hover {
+    background-color: #f9d733;
+    gap: 12px;
+}
+
+.card-btn .btn-arrow {
+    transition: transform 0.2s ease;
+}
+
+.card-btn:hover .btn-arrow {
+    transform: translateX(2px);
+}
+
+/* =========================================================
+   BODY
+   Sets the main text colour, background colour and
+   minimum height of the page.
+   ========================================================= */
+
+body {
+    color: var(--text-color);
+
+    /* Dark blue website background */
+    background: #071a2c;
+
+    /* Makes the body at least the height of the screen */
+    min-height: 100vh;
+}
+
+/* =========================================================
+   CONTAINER
+   Controls the maximum width of the main website content.
+   ========================================================= */
+
+.container {
+    max-width: 1280px;
+
+    /* Automatically centers the container */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* =========================================================
+   NAVIGATION BAR
+   Creates the fixed navigation bar at the top of the page.
+   ========================================================= */
+
+.nav {
+    /* Places logo and navigation items in a row */
+    display: flex;
+
+    /* Vertically centers the navigation items */
+    align-items: center;
+
+    /* Places items on opposite sides */
+    justify-content: space-between;
+
+    /* Adds space inside the navigation bar */
+    padding: 18px 28px;
+
+    /* Keeps navigation visible while scrolling */
+    position: fixed;
+
+    top: 0;
+
+    /* Starts at the center of the screen */
+    left: 50%;
+
+    /* Moves it back by half its width */
+    transform: translateX(-50%);
+
+    /* Leaves space around the navigation */
+    width: calc(100% - 48px);
+
+    max-width: 1280px;
+
+    /* Keeps navigation above other elements */
+    z-index: 100;
+
+    /* Rounds the corners */
+    border-radius: 18px;
+
+    /* Adds space from the top of the page */
+    margin-top: 14px;
+
+    /* Transparent dark background */
+    background: rgba(8, 22, 41, 0.24);
+
+    /* Adds a blur effect behind the navigation */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   LOGO
+   Controls the website logo and text.
+   ========================================================= */
+
+.logo {
+    display: flex;
+
+    /* Centers logo icon and text vertically */
+    align-items: center;
+
+    /* Space between icon and text */
+    gap: 0.6rem;
+
+    font-size: 1.4rem;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+    /* Slightly increases spacing between letters */
+    letter-spacing: 0.03em;
+}
+
+/* Logo icon */
+
+.logo-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Makes the highlighted part of the logo turquoise */
+
+.logo span {
+    color: var(--main-color);
+}
+
+/* =========================================================
+   NAVIGATION LINKS
+   Controls the group of links in the navigation bar.
+   ========================================================= */
+
+.navbar {
+    display: flex;
+
+    /* Adds horizontal spacing between navigation links */
+    column-gap: 2rem;
+}
+
+/* Individual navigation links */
+
+.navbar a {
+    font-size: 0.95rem;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+    /* Makes links uppercase */
+    text-transform: uppercase;
+
+    /* Allows the underline effect to be positioned */
+    position: relative;
+
+    /* Smooth colour transition */
+    transition: 0.3s ease;
+}
+
+/* =========================================================
+   NAVIGATION LINK UNDERLINE
+   Creates an animated underline beneath each link.
+   ========================================================= */
+
+.navbar a::after {
+    content: "";
+
+    position: absolute;
+
+    /* Starts the underline at the left */
+    left: 0;
+
+    /* Places it slightly below the text */
+    bottom: -6px;
+
+    /* Starts with no visible width */
+    width: 0;
+
+    height: 2px;
+
+    background: var(--main-color);
+
+    /* Animates the underline when hovered */
+    transition: width 0.3s ease;
+}
+
+
+/* Changes link colour when hovered or active */
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+/* Expands the underline when hovered or active */
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+/* =========================================================
+   NAVIGATION CTA BUTTON
+   Styles the call-to-action button in the navigation.
+   ========================================================= */
+
+.nav-cta {
+    padding: 0.9rem 1.6rem;
+
+    /* White border */
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    /* Creates a pill-shaped button */
+    border-radius: 999px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HOME / HERO SECTION
+   Creates the large opening section of the website.
+   ========================================================= */
+
+.home {
+    max-width: 100%;
+
+    margin: auto;
+
+    width: 100%;
+
+    /* Makes the hero at least the full screen height */
+    min-height: 60vh;
+
+    display: flex;
+
+    /* Centers content vertically */
+    align-items: center;
+
+    /* Places text and other content apart */
+    justify-content: space-between;
+
+    /* Adds space around the hero content */
+    padding: 8rem 2rem 4rem;
+
+    /* Creates a dark overlay on top of the background image */
+    background:
+        linear-gradient(90deg,
+            rgba(3, 15, 31, 0.92) 0%,
+            rgba(8, 28, 52, 0.6) 42%,
+            rgba(8, 28, 52, 0.15) 100%),
+
+        /* Hero background image */
+        url(images/background.png);
+
+    /* Prevents the image from repeating */
+    background-repeat: no-repeat;
+
+    /* Makes the image cover the entire hero */
+    background-size: cover;
+
+    /* Centers the background image */
+    background-position: center;
+
+    /* Allows positioned child elements */
+    position: relative;
+}
+
+
+/* =========================================================
+   HOME TEXT
+   Controls the main text content in the hero section.
+   ========================================================= */
+
+.home-text {
+    padding-left: 2.5rem;
+
+    max-width: 650px;
+
+    /* Keeps text above background elements */
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* Main hero heading */
+
+.home-text h1 {
+    /* Responsive heading size */
+    font-size: clamp(4rem, 8vw, 7rem);
+
+    /* Controls spacing between lines */
+    line-height: 0.92;
+
+    margin-bottom: 1.2rem;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    /* Adds subtle shadow to improve readability */
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Highlights part of the heading in blue */
+
+.home-text span {
+    color: #64b6ff;
+}
+
+
+/* Decorative line under the heading */
+
+.home-line {
+    width: 130px;
+
+    height: 4px;
+
+    background: #ffffff;
+
+    margin-bottom: 1.4rem;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   HOME SUBTITLE
+   Controls the secondary heading in the hero.
+   ========================================================= */
+
+.home-subtitle {
+    /* Responsive font size */
+    font-size: clamp(1.6rem, 2.6vw, 3rem);
+
+    font-weight: 400;
+
+    margin-bottom: 0.7rem;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   HOME DESCRIPTION
+   Controls the paragraph underneath the hero heading.
+   ========================================================= */
+
+.home-description {
+    font-size: 1.1rem;
+
+    /* Makes the paragraph easier to read */
+    line-height: 1.7;
+
+    color: #d9ebfd;
+
+    max-width: 560px;
+
+    margin-bottom: 1.8rem;
+}
+
+
+/* =========================================================
+   MAIN BUTTON
+   Styles buttons used to encourage users to take action.
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    /* Centers button icon and text */
+    align-items: center;
+
+    /* Adds space between icon and text */
+    gap: 0.75rem;
+
+    padding: 14px 26px;
+
+    /* Blue gradient button */
+    background: linear-gradient(135deg,
+            #2f84ff,
+            #1d5fcc);
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    /* Creates a pill-shaped button */
+    border-radius: 999px;
+
+    /* Adds shadow below the button */
+    box-shadow: 0 10px 30px rgba(9, 65, 134, 0.42);
+
+    /* Smooth hover animation */
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* Button hover effect */
+
+.btn:hover {
+    /* Changes the gradient when hovered */
+    background: linear-gradient(135deg,
+            #6bb9ff,
+            #2f84ff);
+
+    /* Moves the button slightly upward */
+    transform: translateY(-2px);
+
+    /* Increases the shadow */
+    box-shadow: 0 16px 38px rgba(9, 65, 134, 0.5);
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   Shows the user that there is more content below.
+   ========================================================= */
+
+.scroll-indicator {
+    position: absolute;
+
+    /* Places indicator near the bottom */
+    bottom: 1.8rem;
+
+    /* Centers it horizontally */
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.25rem;
+
+    color: #ffffff;
+
+    font-size: 0.82rem;
+
+    /* Adds spacing between letters */
+    letter-spacing: 0.15em;
+}
+
+
+/* Scroll arrow */
+
+.scroll-arrow {
+    font-size: 1.4rem;
+
+    /* Prevents extra line spacing */
+    line-height: 1;
+}
+
+
+/* =========================================================
+   FOOTER
+   Creates the main footer layout.
+   ========================================================= */
+
+.site-footer {
+    width: 100%;
+
+    padding: 1.1rem 2rem;
+
+    /* Creates three footer columns */
+    display: grid;
+
+    grid-template-columns: auto 1fr auto;
+
+    align-items: center;
+
+    gap: 1.4rem;
+
+    /* Dark gradient footer */
+    background: linear-gradient(180deg,
+            #08111c 0%,
+            #040b13 100%);
+
+    /* Adds a subtle line above the footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+   Contains the footer logo and description.
+   ========================================================= */
+
+.footer-brand {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.45rem;
+
+    max-width: 320px;
+}
+
+
+/* Footer logo */
+
+.footer-logo {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.55rem;
+
+    color: #ffffff;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+}
+
+
+/* Footer logo icon */
+
+.footer-logo-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Footer description */
+
+.footer-brand p {
+    color: rgba(230, 244, 255, 0.7);
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FOOTER LINKS
+   Controls the navigation links inside the footer.
+   ========================================================= */
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    /* Allows links to move to another line on smaller screens */
+    flex-wrap: wrap;
+
+    gap: 1.8rem;
+}
+
+
+/* Footer link styling */
+
+.footer-links a {
+    color: #ffffff;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    /* Smooth colour change on hover */
+    transition: color 0.2s ease;
+}
+
+
+/* Footer link hover */
+
+.footer-links a:hover {
+    color: var(--main-color);
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   TABLET — SCREEN WIDTH 900PX OR LESS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    /* Allows navigation items to move onto multiple lines */
+    .nav {
+        flex-wrap: wrap;
+
+        width: calc(100% - 24px);
+
+        padding: 14px 18px;
+    }
+
+
+    /* Centers navigation links */
+    .navbar {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 1rem;
+
+        /* Moves navigation links below the logo */
+        order: 3;
+
+        padding-top: 0.6rem;
+    }
+
+
+    /* Changes hero layout from horizontal to vertical */
+    .home {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: center;
+
+        padding: 7.5rem 1.1rem 4rem;
+    }
+
+
+    /* Removes left spacing from hero text */
+    .home-text {
+        padding-left: 0;
+    }
+
+
+    /* Makes contact card vertical on smaller screens */
+    .home-contact-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    /* Makes contact actions use the full width */
+    .home-contact-actions {
+        min-width: 0;
+
+        width: 100%;
+    }
+
+
+    /* Changes footer from three columns to one */
+    .site-footer {
+        grid-template-columns: 1fr;
+
+        justify-items: center;
+
+        text-align: center;
+    }
+
+
+    /* Centers footer brand content */
+    .footer-brand {
+        max-width: 100%;
+
+        align-items: center;
+    }
+
+
+    /* Centers footer metadata */
+    .footer-meta {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   MOBILE — SCREEN WIDTH 600PX OR LESS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Adjusts the logo size for small screens */
+    .logo {
+        font-size: clamp(1.05rem, 30vw, 1.5rem);
+    }
+
+
+    /* Hides the navigation CTA on mobile */
+    .nav-cta {
+        display: none;
+    }
+
+
+    /* Makes the hero subtitle smaller */
+    .home-subtitle {
+        font-size: 1.5rem;
+    }
+
+
+    /* Makes the hero description smaller */
+    .home-description {
+        font-size: 0.98rem;
+    }
+
+
+    /* Adds horizontal spacing to the contact section */
+    .home-contact {
+        padding-left: 1rem;
+
+        padding-right: 1rem;
+    }
+
+
+    /* Reduces contact card padding */
+    .home-contact-card {
+        padding: 1.4rem;
+    }
+
+
+    /* Reduces footer padding on mobile */
+    .site-footer {
+        padding: 1rem 1rem 1.2rem;
+    }
+
+
+    /* Reduces spacing between footer links */
+    .footer-links {
+        gap: 1rem;
+    }
+
+
+    /* Allows copyright text to wrap on mobile */
+    .footer-meta p {
+        white-space: normal;
+
+        text-align: center;
+    }
+}

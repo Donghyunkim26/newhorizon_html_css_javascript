@@ -1,0 +1,229 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	color: #e6f4ff;
+	font-family: Poppins, sans-serif;
+	background:
+		linear-gradient(115deg, rgba(3, 15, 31, 0.9), rgba(8, 28, 52, 0.62)),
+		url("images/background.png") center / cover fixed;
+}
+
+.terms-page {
+	width: min(100% - 40px, 980px);
+	min-height: 100vh;
+	margin: 0 auto;
+	padding: 170px 0 72px;
+}
+
+.terms-header {
+	max-width: 710px;
+	margin-bottom: 36px;
+	animation: rise-in 560ms 80ms both;
+}
+
+.terms-panel {
+	padding: clamp(24px, 5vw, 48px);
+	border: 1px solid rgba(183, 229, 255, 0.26);
+	border-radius: 12px;
+	background: rgba(6, 25, 43, 0.86);
+	box-shadow: 0 28px 72px rgba(1, 9, 19, 0.42);
+	-webkit-backdrop-filter: blur(16px);
+	backdrop-filter: blur(16px);
+	animation: rise-in 600ms 180ms both;
+}
+
+.eyebrow {
+	color: #5eead4;
+	font-size: 0.82rem;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+h1 {
+	margin: 10px 0 12px;
+	color: #ffffff;
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	line-height: 1.1;
+}
+
+.intro {
+	margin: 0;
+	color: rgba(230, 244, 255, 0.78);
+	font-size: 1.1rem;
+	line-height: 1.65;
+}
+
+.terms-meta,
+.terms-panel-heading {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.75rem 1.1rem;
+}
+
+.terms-meta {
+	margin-top: 1.25rem;
+	color: rgba(230, 244, 255, 0.68);
+	font-size: 0.82rem;
+	font-weight: 700;
+}
+
+.terms-meta span + span::before {
+	content: "";
+	display: inline-block;
+	width: 4px;
+	height: 4px;
+	margin: 0 1.1rem 0 0;
+	border-radius: 50%;
+	background: #5eead4;
+	vertical-align: middle;
+}
+
+.terms-panel-heading {
+	justify-content: space-between;
+	padding-bottom: 1.1rem;
+	border-bottom: 1px solid rgba(230, 244, 255, 0.14);
+	color: #5eead4;
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.terms-panel-heading p {
+	margin: 0;
+}
+
+.terms-content {
+	display: grid;
+	gap: 0;
+	margin-top: 0.5rem;
+}
+
+.term-item {
+	display: grid;
+	grid-template-columns: 48px 1fr;
+	gap: 1rem;
+	padding: 1.55rem 0;
+	border-bottom: 1px solid rgba(230, 244, 255, 0.12);
+	animation: rise-in 500ms both;
+}
+
+.term-item:nth-child(1) { animation-delay: 260ms; }
+.term-item:nth-child(2) { animation-delay: 340ms; }
+.term-item:nth-child(3) { animation-delay: 420ms; }
+.term-item:nth-child(4) { animation-delay: 500ms; }
+
+h2 {
+	margin: 0 0 0.45rem;
+	color: #ffffff;
+	font-size: 1.18rem;
+}
+
+.term-number {
+	color: #5eead4;
+	font-size: 0.88rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+}
+
+.term-item p {
+	margin: 0;
+	color: rgba(230, 244, 255, 0.78);
+	line-height: 1.65;
+}
+
+.terms-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 14px;
+	margin-top: 1.8rem;
+	animation: rise-in 500ms 580ms both;
+}
+
+.secondary-action,
+.accept-action {
+	padding: 12px 20px;
+	border-radius: 8px;
+	font-weight: 800;
+	text-decoration: none;
+	transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.secondary-action {
+	color: #e6f4ff;
+	border: 1px solid rgba(230, 244, 255, 0.42);
+}
+
+.accept-action {
+	color: #062036;
+	background: #5eead4;
+}
+
+.accept-action:hover,
+.accept-action:focus-visible,
+.secondary-action:hover,
+.secondary-action:focus-visible {
+	transform: translateY(-2px);
+}
+
+.accept-action:hover,
+.accept-action:focus-visible {
+	background: #8af5e5;
+}
+
+@keyframes rise-in {
+	from {
+		opacity: 0;
+		transform: translateY(28px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 600px) {
+	.terms-page {
+		width: min(100% - 24px, 920px);
+		padding: 136px 0 36px;
+	}
+
+	.terms-header {
+		margin-bottom: 26px;
+	}
+
+	.terms-panel-heading {
+		align-items: flex-start;
+	}
+
+	.term-item {
+		grid-template-columns: 36px 1fr;
+		gap: 0.65rem;
+	}
+
+	.terms-actions {
+		flex-direction: column-reverse;
+		align-items: stretch;
+	}
+
+	.secondary-action,
+	.accept-action {
+		text-align: center;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 1ms !important;
+		scroll-behavior: auto !important;
+	}
+}

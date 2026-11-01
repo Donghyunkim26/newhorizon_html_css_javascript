@@ -1,0 +1,1167 @@
+/* =========================================================
+   DESIGN TOKENS
+   Reusable values (colors, spacing) referenced everywhere
+   else in this file via var(--name).
+   ========================================================= */
+
+:root {
+    /* Max width the page content will ever stretch to */
+    --page-max: 1280px;
+
+    /* Side breathing room on narrow viewports */
+    --page-gutter: 24px;
+
+    /* Brand blue scale, darkest to lightest */
+    --blue-900: #0a2f66;
+    --blue-700: #125bb4;
+    --blue-500: #2ea2ea;
+
+    /* Main body text color */
+    --ink: #173051;
+
+    /* Secondary/less prominent text color */
+    --muted: #5e748f;
+
+    /* Page background tone */
+    --paper: #eef2f7;
+
+    /* Card/surface background */
+    --card: #ffffff;
+
+    /* Slightly tinted surface, used for expanded FAQ answers */
+    --soft: #f5f8fc;
+
+    /* Standard drop shadow used on the hero */
+    --shadow: 0 18px 36px rgba(9, 44, 88, 0.12);
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+   Strips default browser spacing and sets the base font
+   for every element on the page.
+   ========================================================= */
+
+* {
+    /* Removes default browser margin */
+    margin: 0;
+
+    /* Removes default browser padding */
+    padding: 0;
+
+    /* Makes width/height include padding and border */
+    box-sizing: border-box;
+
+    /* Sets the site-wide font stack */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    /* Animates jump-to-anchor navigation (e.g. #faq links) */
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   BODY (base)
+   Default text color and background gradient for the page.
+   Overridden further down by the "policy-centre" body rule.
+   ========================================================= */
+
+body {
+    /* Default text color, from the --ink token */
+    color: var(--ink);
+
+    /* Soft vertical blue-white gradient background */
+    background: linear-gradient(180deg, #f0f4f9 0%, #f7faff 42%, #eef4fc 100%);
+}
+
+
+/* =========================================================
+   TOP NAVIGATION BAR
+   Sticky header containing the brand/logo and nav links.
+   ========================================================= */
+
+.faq-nav {
+    /* Stays pinned to the top while the page scrolls */
+    position: sticky;
+
+    /* Sticks exactly at the top edge */
+    top: 0;
+
+    /* Keeps nav above other page content */
+    z-index: 100;
+
+    /* Inner spacing, using the gutter token for left/right */
+    padding: 16px var(--page-gutter);
+
+    /* Light background matching the page tone */
+    background: var(--paper);
+}
+
+.faq-nav-inner {
+    /* Constrains and centers the nav content */
+    width: min(var(--page-max), 100%);
+    margin: 0 auto;
+
+    /* Lays out logo and links side by side */
+    display: flex;
+
+    /* Vertically centers logo and links */
+    align-items: center;
+
+    /* Pushes logo to one edge, links to the other */
+    justify-content: space-between;
+
+    /* Space between logo and links if they wrap */
+    gap: 1rem;
+}
+
+.faq-nav::after {
+    /* Decorative empty element for the gradient underline */
+    content: "";
+
+    /* Positioned relative to .faq-nav (needs position set there to work fully) */
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    /* Sits at the very bottom edge of the nav */
+    bottom: 0;
+
+    /* Thickness of the underline bar */
+    height: 10px;
+
+    /* Brand-colored gradient stripe, dark to light blue */
+    background: linear-gradient(90deg, var(--blue-900) 0%, var(--blue-700) 52%, var(--blue-500) 100%);
+}
+
+.brand {
+    /* Brand text color */
+    color: var(--blue-700);
+
+    /* Scales smoothly between 1rem and 1.9rem based on viewport width */
+    font-size: clamp(1rem, 1.5vw, 1.9rem);
+
+    /* Extra-bold weight for emphasis */
+    font-weight: 900;
+
+    /* Slightly spaced-out letters */
+    letter-spacing: 0.09em;
+
+    /* Underlines the brand name */
+    text-decoration: underline;
+
+    /* Makes the underline thicker */
+    text-decoration-thickness: 2px;
+
+    /* Adds a gap between text and underline */
+    text-underline-offset: 4px;
+}
+
+.faq-links {
+    /* Lays out nav links in a row */
+    display: flex;
+
+    /* Vertically centers the links */
+    align-items: center;
+
+    /* Space between each link */
+    gap: 0.8rem;
+
+    /* Small gap below the links, above the gradient underline */
+    padding-bottom: 10px;
+}
+
+.faq-links a {
+    /* Link text color */
+    color: var(--blue-900);
+
+    /* Link text size */
+    font-size: 0.9rem;
+
+    /* Bold weight for readability */
+    font-weight: 700;
+
+    /* Slight letter spacing */
+    letter-spacing: 0.06em;
+
+    /* Displays link labels in all caps */
+    text-transform: uppercase;
+
+    /* Clickable padding around the text */
+    padding: 0.55rem 0.9rem;
+
+    /* Fully rounded, pill-shaped links */
+    border-radius: 999px;
+
+    /* Smoothly animates background/color changes on hover */
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Active page link and hover state share the same look */
+.faq-links a:hover,
+.faq-links a.active {
+    /* Filled pill background on hover/active */
+    background: var(--blue-700);
+
+    /* White text for contrast against the filled pill */
+    color: #fff;
+}
+
+
+/* =========================================================
+   HERO SECTION
+   Large intro banner with heading, description, and tags.
+   ========================================================= */
+
+.hero {
+    /* Constrains width and centers the hero on the page */
+    width: min(var(--page-max), calc(100% - (var(--page-gutter) * 2)));
+    margin: 2.1rem auto 0;
+
+    /* Allows the background glows to be clipped to the rounded corners */
+    position: relative;
+    overflow: hidden;
+
+    /* Rounded card corners */
+    border-radius: 26px;
+
+    /* Responsive inner spacing that grows with viewport width */
+    padding: clamp(2.1rem, 5vw, 4.1rem) clamp(1.1rem, 4vw, 3rem);
+
+    /* Layered background: two soft radial glows over a diagonal blue gradient */
+    background:
+        radial-gradient(circle at 14% 22%, rgba(255, 255, 255, 0.24), transparent 43%),
+        radial-gradient(circle at 86% 80%, rgba(46, 162, 234, 0.35), transparent 40%),
+        linear-gradient(135deg, #0b336c 0%, #125bb4 50%, #2ea2ea 100%);
+
+    /* White text so it reads over the dark blue background */
+    color: #ffffff;
+
+    /* Soft shadow lifting the hero off the page */
+    box-shadow: var(--shadow);
+}
+
+.hero-content {
+    /* Limits line length for readability */
+    max-width: 800px;
+    margin: 0 auto;
+
+    /* Centers heading/paragraph text */
+    text-align: center;
+
+    /* Ensures content sits above any future background layers */
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    /* Responsive heading size, scales with viewport */
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+
+    /* Tight line height for a large display heading */
+    line-height: 1.04;
+
+    /* Slightly tighter letter spacing at large sizes */
+    letter-spacing: -0.02em;
+
+    /* Space below the heading */
+    margin-bottom: 0.95rem;
+}
+
+.hero p {
+    /* Responsive paragraph size */
+    font-size: clamp(1rem, 2vw, 1.2rem);
+
+    /* Slightly muted light-blue tone against the dark background */
+    color: #d8ecff;
+
+    /* Generous line height for readability */
+    line-height: 1.75;
+
+    /* Caps line length at 70 characters */
+    max-width: 70ch;
+
+    /* Centers the paragraph block */
+    margin: 0 auto;
+}
+
+.hero-tags {
+    /* Space above the tag row */
+    margin-top: 1.45rem;
+
+    /* Lays tags out in a row */
+    display: flex;
+
+    /* Centers the tags horizontally */
+    justify-content: center;
+
+    /* Space between tags */
+    gap: 0.65rem;
+
+    /* Lets tags wrap onto multiple lines on narrow screens */
+    flex-wrap: wrap;
+}
+
+.hero-tags span {
+    /* Tag text color */
+    color: #f2f9ff;
+
+    /* Small tag text size */
+    font-size: 0.78rem;
+
+    /* Bold weight for legibility at small size */
+    font-weight: 700;
+
+    /* Slight letter spacing */
+    letter-spacing: 0.08em;
+
+    /* All-caps tag labels */
+    text-transform: uppercase;
+
+    /* Padding inside each tag pill */
+    padding: 0.55rem 0.8rem;
+
+    /* Thin translucent border outlining the pill */
+    border: 1px solid rgba(255, 255, 255, 0.26);
+
+    /* Fully rounded pill shape */
+    border-radius: 999px;
+
+    /* Faint translucent fill so tags stand out from the hero background */
+    background: rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================================================
+   FAQ LIST
+   Container and individual accordion items.
+   ========================================================= */
+
+.faq {
+    /* Constrains and centers the FAQ list on the page */
+    width: min(var(--page-max), calc(100% - (var(--page-gutter) * 2)));
+    margin: 3rem auto 4rem;
+
+    /* Stacks each FAQ item with consistent spacing via grid gap */
+    display: grid;
+    gap: 1rem;
+}
+
+.faq-item {
+    /* White card background for each question/answer pair */
+    background: var(--card);
+
+    /* Faint border for definition against the page background */
+    border: 1px solid rgba(23, 48, 81, 0.08);
+
+    /* Rounded card corners */
+    border-radius: 16px;
+
+    /* Clips the answer's height animation to the rounded corners */
+    overflow: hidden;
+
+    /* Soft shadow lifting each card off the page */
+    box-shadow: 0 10px 22px rgba(8, 48, 98, 0.08);
+}
+
+.faq-question {
+    /* Button fills the full width of its card */
+    width: 100%;
+
+    /* Removes default button border */
+    border: none;
+
+    /* Shows a pointer cursor since it's clickable */
+    cursor: pointer;
+
+    /* Places the question text and the icon on opposite ends */
+    display: flex;
+    justify-content: space-between;
+
+    /* Vertically centers text and icon */
+    align-items: center;
+
+    /* Space between text and icon */
+    gap: 1rem;
+
+    /* Left-aligns the question text (buttons center text by default) */
+    text-align: left;
+
+    /* Default (closed) background */
+    background: #ffffff;
+
+    /* Question text color */
+    color: var(--blue-900);
+
+    /* Responsive text size */
+    font-size: clamp(1.02rem, 2.1vw, 1.22rem);
+
+    /* Bold weight for the question */
+    font-weight: 700;
+
+    /* Clickable padding around the question */
+    padding: 1.25rem 1.4rem;
+
+    /* Smoothly animates the active-state background/color change */
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.faq-question:hover {
+    /* Very light blue tint on hover, before it's opened */
+    background: #f0f6ff;
+}
+
+.faq-question span {
+    /* Fixed-size circular icon badge (e.g. a "+" or chevron) */
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+
+    /* Centers the icon glyph inside the circle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Icon glyph size */
+    font-size: 1.25rem;
+
+    /* Icon color */
+    color: var(--blue-700);
+
+    /* Light blue circle background */
+    background: #e9f2ff;
+
+    /* Smoothly animates the rotation when the item opens */
+    transition: transform 0.25s ease;
+}
+
+.faq-answer {
+    /* Collapsed by default; JS toggles max-height to reveal the answer */
+    max-height: 0;
+
+    /* Hides overflowing content while collapsed */
+    overflow: hidden;
+
+    /* Slightly tinted background distinguishing the answer from the question */
+    background: var(--soft);
+
+    /* Smoothly animates the expand/collapse */
+    transition: max-height 0.42s ease;
+}
+
+.faq-answer p {
+    /* Muted text color for the answer body */
+    color: var(--muted);
+
+    /* Comfortable line height for reading */
+    line-height: 1.78;
+
+    /* Answer text size */
+    font-size: 1.02rem;
+
+    /* Padding on all sides except the top (question padding handles that visually) */
+    padding: 0 1.4rem 1.25rem;
+}
+
+.faq-question.active {
+    /* Filled gradient background when the item is open */
+    background: linear-gradient(135deg, #0f4f9e, #1b78cc);
+
+    /* White text for contrast against the filled background */
+    color: #ffffff;
+}
+
+.faq-question.active span {
+    /* Inverts the icon colors when open */
+    color: #0f4f9e;
+    background: #ffffff;
+
+    /* Rotates the icon (e.g. "+" becomes "x", or chevron points down) */
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   SITE FOOTER
+   Three-column footer: brand blurb, nav links, meta/social.
+   ========================================================= */
+
+.site-footer {
+    /* Footer spans the full page width */
+    width: 100%;
+
+    /* Inner spacing */
+    padding: 1.2rem 2rem;
+
+    /* Three columns: brand | links | meta */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    /* Vertically centers each column's content */
+    align-items: center;
+
+    /* Space between columns */
+    gap: 1.4rem;
+
+    /* Dark blue vertical gradient background */
+    background: linear-gradient(180deg, #315786 0%, #0b63ce 100%);
+
+    /* Faint separator line above the footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand {
+    /* Stacks logo and description vertically */
+    display: flex;
+    flex-direction: column;
+
+    /* Space between logo and description */
+    gap: 0.45rem;
+
+    /* Keeps the description from stretching too wide */
+    max-width: 320px;
+}
+
+.footer-logo {
+    /* Places logo icon and text side by side */
+    display: inline-flex;
+    align-items: center;
+
+    /* Space between icon and text */
+    gap: 0.55rem;
+
+    /* White logo text */
+    color: #ffffff;
+
+    /* Logo text size */
+    font-size: 1rem;
+
+    /* Bold weight */
+    font-weight: 800;
+
+    /* Slight letter spacing */
+    letter-spacing: 0.04em;
+}
+
+.footer-logo-mark {
+    /* Teal accent color for the logo icon */
+    color: #5eead4;
+
+    /* Icon size, slightly larger than the logo text */
+    font-size: 1.2rem;
+}
+
+.footer-brand p {
+    /* Translucent white for the description text */
+    color: rgba(230, 244, 255, 0.74);
+
+    /* Small supporting text size */
+    font-size: 0.82rem;
+
+    /* Comfortable line height */
+    line-height: 1.5;
+}
+
+.footer-links {
+    /* Lays footer links out in a row */
+    display: flex;
+
+    /* Centers the link group in the middle column */
+    justify-content: center;
+    align-items: center;
+
+    /* Lets links wrap on narrow screens */
+    flex-wrap: wrap;
+
+    /* Space between links */
+    gap: 1.55rem;
+}
+
+.footer-links a {
+    /* White link text */
+    color: #ffffff;
+
+    /* Link text size */
+    font-size: 0.9rem;
+
+    /* Regular-ish weight */
+    font-weight: 500;
+
+    /* Smoothly animates the hover color change */
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    /* Teal accent color on hover */
+    color: #5eead4;
+}
+
+.footer-meta {
+    /* Lays out meta text and social icons in a row */
+    display: flex;
+    align-items: center;
+
+    /* Right-aligns this column's content */
+    justify-content: flex-end;
+
+    /* Space between meta text and social icons */
+    gap: 1.2rem;
+}
+
+.footer-meta p {
+    /* Translucent white for meta text (e.g. copyright line) */
+    color: rgba(230, 244, 255, 0.66);
+
+    /* Small text size */
+    font-size: 0.8rem;
+
+    /* Prevents the line from wrapping awkwardly */
+    white-space: nowrap;
+}
+
+.footer-social {
+    /* Lays out social icons in a row */
+    display: flex;
+    align-items: center;
+
+    /* Space between icons */
+    gap: 0.8rem;
+}
+
+.footer-social a {
+    /* Centers each icon glyph inside its clickable area */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* White icon color */
+    color: #ffffff;
+
+    /* Icon size */
+    font-size: 1.2rem;
+
+    /* Smoothly animates hover lift and color change */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-social a:hover {
+    /* Teal accent color on hover */
+    color: #5eead4;
+
+    /* Nudges the icon upward slightly on hover */
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   KEYFRAME ANIMATIONS
+   Reusable floating motion, likely applied to decorative
+   background shapes elsewhere in the markup.
+   ========================================================= */
+
+@keyframes driftUp {
+
+    /* Starts and ends at rest */
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    /* Floats upward at the midpoint of the animation */
+    50% {
+        transform: translateY(-16px);
+    }
+}
+
+@keyframes driftDown {
+
+    /* Starts and ends at rest */
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    /* Floats downward at the midpoint of the animation */
+    50% {
+        transform: translateY(16px);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE: FOOTER (≤900px)
+   Stacks the three footer columns into one on tablets/phones.
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .site-footer {
+        /* Collapses the three columns into a single stacked column */
+        grid-template-columns: 1fr;
+
+        /* Centers text since columns are now stacked */
+        text-align: center;
+
+        /* Smaller gap between stacked sections */
+        gap: 1rem;
+    }
+
+    .footer-brand {
+        /* Centers the brand block horizontally when stacked */
+        margin: 0 auto;
+    }
+
+    .footer-meta {
+        /* Centers meta content when stacked */
+        justify-content: center;
+
+        /* Allows meta items to wrap if needed */
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE: NAV + HERO + FAQ (≤700px)
+   Tightens spacing and font sizes for small screens.
+   ========================================================= */
+
+@media (max-width: 700px) {
+    .faq-nav {
+        /* Reduces the gutter token's value at this breakpoint */
+        --page-gutter: 12px;
+
+        /* Smaller vertical padding */
+        padding: 14px var(--page-gutter);
+    }
+
+    .faq-nav-inner {
+        /* Uses the full width now that gutter is smaller */
+        width: 100%;
+
+        /* Allows the logo/links to wrap onto a second line */
+        flex-wrap: wrap;
+    }
+
+    .faq-nav::after {
+        /* Thinner gradient underline on small screens */
+        height: 8px;
+    }
+
+    .faq-links {
+        /* Full-width link row */
+        width: 100%;
+
+        /* Left-aligns links instead of spreading them */
+        justify-content: flex-start;
+
+        /* Lets links wrap if there are many */
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        /* Reduced top margin */
+        margin-top: 1.4rem;
+
+        /* Slightly smaller corner radius */
+        border-radius: 18px;
+
+        /* Tighter padding on small screens */
+        padding: 2rem 0.95rem 2.1rem;
+    }
+
+    .hero h1 {
+        /* Fixed, smaller heading size (overrides the clamp() above) */
+        font-size: 2rem;
+    }
+
+    .faq-question {
+        /* Reduced padding for compact rows */
+        padding: 1.05rem 1rem;
+    }
+
+    .faq-answer p {
+        /* Reduced padding to match the tighter question padding */
+        padding: 0 1rem 1rem;
+    }
+}
+
+
+/* =========================================================
+   POLICY-CENTRE THEME OVERRIDES
+   A second, darker "shared" theme that overrides the base
+   body/footer styles above and adds the header/panel layout
+   used on policy/terms-style pages built from this same CSS.
+   ========================================================= */
+
+body {
+    /* Ensures the dark theme also spans the full viewport height */
+    min-height: 100vh;
+
+    /* Light text color for readability on the dark background */
+    color: #e6f4ff;
+
+    /* Dark translucent gradient layered over a fixed background photo */
+    background:
+        linear-gradient(115deg, rgba(3, 15, 31, 0.9), rgba(8, 28, 52, 0.62)),
+        url("images/background.png") center / cover fixed;
+}
+
+.faq-header,
+.faq-panel {
+    /* Shared max-width/centering for the header and content panel */
+    width: min(100% - 40px, 980px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-header {
+    /* Narrower cap for the intro text specifically */
+    max-width: 710px;
+
+    /* No extra top margin (padding-top below handles spacing) */
+    margin-top: 0;
+
+    /* Space below the header, before the panel starts */
+    margin-bottom: 36px;
+
+    /* Pushes content below the fixed/sticky nav bar */
+    padding-top: 170px;
+
+    /* Fades and slides the header in on page load */
+    animation: rise-in 560ms 80ms both;
+}
+
+.faq-header h1 {
+    /* Vertical spacing above and below the heading */
+    margin: 10px 0 12px;
+
+    /* White heading text */
+    color: #ffffff;
+
+    /* Responsive heading size */
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    /* Tight line height for a large heading */
+    line-height: 1.1;
+
+    /* Neutral (default) letter spacing */
+    letter-spacing: 0;
+}
+
+.faq-header .intro {
+    /* Caps the intro paragraph's width for readability */
+    max-width: 650px;
+    margin: 0;
+
+    /* Translucent white text */
+    color: rgba(230, 244, 255, 0.78);
+
+    /* Intro paragraph text size */
+    font-size: 1.1rem;
+
+    /* Comfortable line height */
+    line-height: 1.65;
+}
+
+.faq-header .eyebrow {
+    /* Teal accent color for the small label above the heading */
+    color: #5eead4;
+
+    /* Small eyebrow text size */
+    font-size: 0.82rem;
+
+    /* Bold weight */
+    font-weight: 800;
+
+    /* Wide letter spacing, typical of eyebrow/label text */
+    letter-spacing: 0.12em;
+
+    /* All-caps label */
+    text-transform: uppercase;
+}
+
+.terms-meta {
+    /* Lays out meta items (e.g. "Last updated", "Version") in a row */
+    display: flex;
+    align-items: center;
+
+    /* Lets meta items wrap onto multiple lines */
+    flex-wrap: wrap;
+
+    /* Row and column gaps between meta items */
+    gap: 0.75rem 1.1rem;
+
+    /* Space above the meta row */
+    margin-top: 1.25rem;
+
+    /* Translucent white text color */
+    color: rgba(230, 244, 255, 0.68);
+
+    /* Small meta text size */
+    font-size: 0.82rem;
+
+    /* Bold weight for emphasis */
+    font-weight: 700;
+}
+
+.terms-meta span + span::before {
+    /* Decorative separator dot before every meta item except the first */
+    content: "";
+    display: inline-block;
+
+    /* Tiny dot dimensions */
+    width: 4px;
+    height: 4px;
+
+    /* Pushes the dot away from the following text */
+    margin: 0 1.1rem 0 0;
+
+    /* Fully round dot shape */
+    border-radius: 50%;
+
+    /* Teal accent color matching the eyebrow */
+    background: #5eead4;
+
+    /* Aligns the dot with the middle of the text */
+    vertical-align: middle;
+}
+
+.faq-panel {
+    /* Renders as a block-level section */
+    display: block;
+
+    /* No extra top margin */
+    margin-top: 0;
+
+    /* Space below the panel, before the footer */
+    margin-bottom: 72px;
+
+    /* Responsive inner spacing */
+    padding: clamp(24px, 5vw, 48px);
+
+    /* Faint light-blue border outlining the panel */
+    border: 1px solid rgba(183, 229, 255, 0.26);
+
+    /* Slightly rounded corners */
+    border-radius: 12px;
+
+    /* Dark translucent panel background */
+    background: rgba(6, 25, 43, 0.86);
+
+    /* Deep shadow lifting the panel off the page background */
+    box-shadow: 0 28px 72px rgba(1, 9, 19, 0.42);
+
+    /* Frosted-glass blur effect over whatever is behind the panel */
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+
+    /* Fades and slides the panel in, slightly after the header */
+    animation: rise-in 600ms 180ms both;
+}
+
+.faq-panel .terms-panel-heading {
+    /* Places a label and (optionally) meta text on opposite ends */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Lets content wrap on narrow screens */
+    flex-wrap: wrap;
+
+    /* Row and column gaps */
+    gap: 0.75rem 1.1rem;
+
+    /* Space below, before the divider line */
+    padding-bottom: 1.1rem;
+
+    /* Divider line separating this heading from the FAQ items below */
+    border-bottom: 1px solid rgba(230, 244, 255, 0.14);
+
+    /* Teal accent text color */
+    color: #5eead4;
+
+    /* Small label text size */
+    font-size: 0.78rem;
+
+    /* Bold weight */
+    font-weight: 800;
+
+    /* Wide letter spacing */
+    letter-spacing: 0.1em;
+
+    /* All-caps label */
+    text-transform: uppercase;
+}
+
+.faq-panel .terms-panel-heading p {
+    /* Removes default paragraph margin so it aligns cleanly in the flex row */
+    margin: 0;
+}
+
+.faq-panel .faq-item {
+    /* Overrides the base .faq-item card styling for this dark panel context */
+    margin: 0;
+    border: 0;
+
+    /* Thin divider between items instead of a full card border */
+    border-bottom: 1px solid rgba(230, 244, 255, 0.12);
+
+    /* No rounded corners needed since items aren't separate cards here */
+    border-radius: 0;
+
+    /* Transparent background so the dark panel shows through */
+    background: transparent;
+    box-shadow: none;
+
+    /* Fades and slides each item in; delays below stagger the effect */
+    animation: rise-in 500ms both;
+}
+
+/* Staggered entrance timing so each FAQ item animates slightly after the last */
+.faq-panel .faq-item:nth-child(2) { animation-delay: 260ms; }
+.faq-panel .faq-item:nth-child(3) { animation-delay: 340ms; }
+.faq-panel .faq-item:nth-child(4) { animation-delay: 420ms; }
+.faq-panel .faq-item:nth-child(5) { animation-delay: 500ms; }
+.faq-panel .faq-item:nth-child(6) { animation-delay: 580ms; }
+
+.faq-panel .faq-question {
+    /* More vertical breathing room, no horizontal padding (panel provides it) */
+    padding: 1.55rem 0;
+
+    /* White question text on the dark panel */
+    color: #ffffff;
+
+    /* Transparent background, replacing the white card background */
+    background: transparent;
+
+    /* Slightly larger question text than the base theme */
+    font-size: 1.18rem;
+}
+
+.faq-panel .faq-question:hover,
+.faq-panel .faq-question.active {
+    /* Teal accent text color on hover/active, instead of a filled background */
+    color: #5eead4;
+
+    /* Keeps the background transparent even when active */
+    background: transparent;
+}
+
+.faq-panel .faq-question span {
+    /* Prevents the icon badge from shrinking in the flex layout */
+    flex: 0 0 34px;
+
+    /* Teal icon color */
+    color: #5eead4;
+
+    /* Faint teal-tinted circle background */
+    background: rgba(94, 234, 212, 0.12);
+}
+
+.faq-panel .faq-question.active span {
+    /* Dark icon color when active, for contrast against the filled circle */
+    color: #062036;
+
+    /* Solid teal circle background when active */
+    background: #5eead4;
+}
+
+.faq-panel .faq-answer {
+    /* Transparent background, replacing the base theme's tinted answer background */
+    background: transparent;
+}
+
+.faq-panel .faq-answer p {
+    /* Extra right padding to keep long answer lines from touching the panel edge */
+    padding: 0 3rem 1.55rem 0;
+
+    /* Translucent white answer text */
+    color: rgba(230, 244, 255, 0.78);
+
+    /* Answer text size */
+    font-size: 1rem;
+
+    /* Comfortable line height */
+    line-height: 1.65;
+}
+
+.site-footer {
+    /* Darker footer gradient to match the policy-centre theme */
+    background: linear-gradient(180deg, #08111c 0%, #040b13 100%);
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATION
+   Fade-and-rise effect used by the header/panel/FAQ items
+   in the policy-centre theme above.
+   ========================================================= */
+
+@keyframes rise-in {
+    /* Starting state: invisible and shifted down */
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    /* Ending state: fully visible at its natural position */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE: POLICY-CENTRE LAYOUT (≤600px)
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .faq-header,
+    .faq-panel {
+        /* Slightly narrower side margins on small screens */
+        width: min(100% - 24px, 920px);
+    }
+
+    .faq-header {
+        /* Less top padding since the nav is more compact on mobile */
+        padding-top: 136px;
+
+        /* Reduced space below the header */
+        margin-bottom: 26px;
+    }
+
+    .faq-panel .terms-panel-heading {
+        /* Left-aligns wrapped items instead of centering them vertically */
+        align-items: flex-start;
+    }
+
+    .faq-panel .faq-question {
+        /* Reduced vertical padding for compact rows */
+        padding: 1.25rem 0;
+    }
+
+    .faq-panel .faq-answer p {
+        /* Removes the extra right padding on narrow screens */
+        padding-right: 0;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY: REDUCED MOTION
+   Respects the user's OS-level preference to minimize
+   animation, disabling entrance/float effects site-wide.
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        /* Effectively instant animations for users sensitive to motion */
+        animation-duration: 1ms !important;
+
+        /* Disables smooth-scroll jumping as well */
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frog Arm Animation</title>
+  <link rel="stylesheet" href="frog_arm.css">
+  <script type="module" src="frog_arm.js"></script>
+</head>
+
+<body>
+  <div class="back-container">
+    <a href="../arm.html" class="back-button">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M19 12H5m7 7-7-7 7-7" />
+      </svg>
+      <span>Back to arm exercises</span>
+    </a>
+  </div>
+  <main>
+    <h1>Frog Arm Animation</h1>
+    <p>Rotate and zoom the frog, then use the animation controls.</p>
+    <model-viewer id="frog" src="./models/frog_armglb.glb" alt="Animated frog arm exercise" camera-controls
+      shadow-intensity="1" interaction-prompt="auto"></model-viewer>
+    <div class="controls">
+      <button id="play" disabled>Play</button>
+      <button id="pause" disabled>Pause</button>
+      <button id="reset" disabled>Reset</button>
+    </div>
+    <p id="status" role="status" aria-live="polite">Loading 3D model...</p>
+  </main>
+</body>
+
+</html>

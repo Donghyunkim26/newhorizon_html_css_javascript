@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Leaderboard | New Horizon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="leaderboard.css">
+    <script src="leaderboard.js" defer></script>
+</head>
+
+<body>
+    <main class="leaderboard-page">
+        <header class="leaderboard-nav">
+            <a class="brand" href="Horizon_home.html"><img src="images/Horizon_logo.jpg" alt=""> NEW HORIZON</a>
+            <a class="back-link" href="quizmenu.html">Back to menu <span aria-hidden="true">&#8599;</span></a>
+        </header>
+
+        <section class="leaderboard-hero" aria-labelledby="page-title">
+            <div class="hero-copy">
+                <div class="eyebrow">HORIZON COMMUNITY</div>
+                <h1 id="page-title">Healthy habits leaderboard</h1>
+                <p>Small steps add up. See how your latest quiz attempt compares this week.</p>
+                <div class="hero-meta"><span><strong>7</strong> questions</span><span><strong>90s</strong> to play</span><span><strong>1</strong> shared goal</span></div>
+            </div>
+            <div class="hero-mark" aria-hidden="true"><span>&#9733;</span><small>GROW<br>TOGETHER</small></div>
+        </section>
+
+        <section class="your-score" id="yourScore" aria-live="polite"></section>
+
+        <section class="board-panel" aria-labelledby="board-title">
+            <div class="board-heading">
+                <div>
+                    <div class="eyebrow">TOP PERFORMERS</div>
+                    <h2 id="board-title">This week's standouts</h2>
+                </div>
+                <span class="week-label">This week</span>
+            </div>
+            <div class="podium" id="podium" aria-label="Top three players"></div>
+            <div class="list-heading"><span>ALL RANKINGS</span><span>SCORE</span></div>
+            <div class="board-list" id="boardList"></div>
+            <p class="board-footnote">Complete the quiz again to improve your personal best.</p>
+        </section>
+
+        <div class="page-actions">
+            <a class="primary-action" href="healthgame.html">Play quiz again <span aria-hidden="true">&#8594;</span></a>
+            <a class="secondary-action" href="quizmenu.html">Interactive learning</a>
+        </div>
+    </main>
+</body>
+
+</html>

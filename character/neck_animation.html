@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Separate Blender Animations</title>
+    <link rel="stylesheet" href="neck_animation.css">
+    <link rel="icon" href="botfavicon.ico" type="image/x-icon">
+    <script type="module" src="neck_animation.js"></script>
+</head>
+
+<body>
+    
+            <div class="back-container">
+                <a href="../neck.html" class="back-button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M19 12H5m7 7-7-7 7-7" />
+                    </svg>
+                    <span>Back to neck exercises</span>
+                </a>
+            </div>
+    
+    <header>
+        <h1>Animated 3D Model</h1>
+        <p>Control each Blender animation separately.</p>
+    </header>
+
+    <main class="animation-grid">
+        <section class="animation-card" data-animation="Neck">
+            <h2>Neck Exercise Animation Character</h2>
+
+            <model-viewer src="./models/neckfrog.glb" camera-controls shadow-intensity="1" alt="Neck animation">
+            </model-viewer>
+
+            <div class="controls">
+                <button class="play" type="button" aria-label="Play animation" title="Play" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                </button>
+                <button class="pause" type="button" aria-label="Pause animation" title="Pause" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M7 5h4v14H7zm6 0h4v14h-4z" />
+                    </svg>
+                </button>
+                <button class="reset" type="button" aria-label="Reset animation" title="Reset" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 5V2L7.5 6.5 12 11V8a7 7 0 1 1-6.3 4H3.5A9 9 0 1 0 12 5z" />
+                    </svg>
+                </button>
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>

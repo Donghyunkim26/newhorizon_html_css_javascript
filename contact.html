@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Horizon</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="Horizon_home.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+</head>
+
+<body class="contact-page">
+  <div class="nav container">
+    <a href="Horizon_home.html" class="logo">
+      <img class="logo-mark" src="images/Horizon_logo.jpg" alt="New Horizon Logo">
+      <span>NEW HORIZON</span>
+    </a>
+
+  </div>
+    <main class="auth-card">
+        <section class="welcome-panel" aria-label="Welcome section">
+            <div class="welcome-copy login-copy" aria-live="polite">
+                <h1>Hello, Welcome!</h1>
+                <p>Don't have an account?</p>
+                <button type="button" class="outline-btn switch-btn" data-target="register">Register</button>
+            </div>
+
+            <div class="welcome-copy register-copy" aria-live="polite">
+                <h1>Welcome Back!</h1>
+                <p>Already have an account?</p>
+                <button type="button" class="outline-btn switch-btn" data-target="login">Login</button>
+            </div>
+        </section>
+
+        <section class="login-panel" aria-label="Login section">
+            <form action="" class="auth-form login-form" id="loginForm">
+                <h2>Login</h2>
+
+                <div class="input-box">
+                    <input type="text" id="loginUsername" name="loginUsername" placeholder="Username" required>
+                    <i class="bx bxs-user" aria-hidden="true"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required>
+                    <i class="bx bxs-lock-alt" aria-hidden="true"></i>
+                </div>
+
+                <div class="forgot-link">
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+
+                <p class="social-text">or login with social platforms</p>
+
+                <div class="social-icons">
+                    <a href="https://accounts.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google" title="Google"><i class="bx bxl-google"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://github.com/login" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="bx bxl-github"></i></a>
+                    <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </form>
+
+            <form action="" class="auth-form register-form" id="registerForm" aria-hidden="true">
+                <h2>Register</h2>
+
+                <div class="input-box">
+                    <input type="text" id="registerUsername" name="registerUsername" placeholder="Username" required>
+                    <i class="bx bxs-user" aria-hidden="true"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="email" id="registerEmail" name="registerEmail" placeholder="Email" required>
+                    <i class="bx bxs-envelope" aria-hidden="true"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="registerPassword" name="registerPassword" placeholder="Password" required>
+                    <i class="bx bxs-lock-alt" aria-hidden="true"></i>
+                </div>
+
+                <button type="submit" class="login-btn">Create account</button>
+
+                <p class="social-text">or sign up with social platforms</p>
+
+                <div class="social-icons">
+                    <a href="https://accounts.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google" title="Google"><i class="bx bxl-google"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://github.com/login" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="bx bxl-github"></i></a>
+                    <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <div class="password-modal" id="passwordModal" hidden>
+        <div class="password-modal-backdrop" data-close-password-modal></div>
+        <section class="password-dialog" role="dialog" aria-modal="true" aria-labelledby="passwordDialogTitle">
+            <button class="password-dialog-close" type="button" aria-label="Close password reset" data-close-password-modal>
+                <i class="bx bx-x" aria-hidden="true"></i>
+            </button>
+            <p class="auth-eyebrow">Account recovery</p>
+            <h2 id="passwordDialogTitle">Reset your password</h2>
+            <p class="password-dialog-copy">Enter your username or email, then choose a new password.</p>
+            <form id="forgotPasswordForm">
+                <label for="resetIdentifier">Username or email</label>
+                <input id="resetIdentifier" type="text" autocomplete="username" required>
+                <label for="resetPassword">New password</label>
+                <input id="resetPassword" type="password" autocomplete="new-password" minlength="6" required>
+                <p class="reset-message" id="resetMessage" role="alert"></p>
+                <button class="login-btn" type="submit">Update password</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="contact.js"></script>
+</body>
+
+</html>

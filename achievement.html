@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements | New Horizon</title>
+  <link rel="stylesheet" href="achievement.css">
+  <script src="auth.js" defer></script>
+  <script src="achievement.js" defer></script>
+</head>
+
+<body>
+  <main class="achievement-page">
+    <a class="back-link" href="Horizon_dashboard.html">&larr; Back to dashboard</a>
+    <header class="achievement-header">
+      <div>
+        <p class="eyebrow">YOUR PROGRESS</p>
+        <h1>Achievements</h1>
+        <p>Every completed goal is proof that your small steps are adding up.</p>
+      </div>
+      <div class="achievement-count"><strong id="achievementCount">0</strong><span>earned</span></div>
+    </header>
+    <section class="achievement-list" id="achievementList" aria-live="polite"></section>
+    <p class="empty-achievements" id="emptyAchievements">Complete a goal to unlock your first achievement.</p>
+  </main>
+</body>
+
+</html>

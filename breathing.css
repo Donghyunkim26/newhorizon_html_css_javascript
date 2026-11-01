@@ -1,0 +1,827 @@
+:root {
+	--ink: #143847;
+	--muted: #6f8087;
+	--teal: #188e83;
+	--teal-dark: #11675f;
+	--mint: #e3f5f0;
+	--line: #dceae7;
+	--white: #ffffff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	color: var(--ink);
+	background: linear-gradient(145deg, #f4fbf9, #f9fbf7);
+	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: min(1180px, calc(100% - 48px));
+	margin: 18px auto 0;
+	padding: 14px 22px;
+	border: 1px solid rgba(255, 255, 255, .9);
+	border-radius: 16px;
+	background: rgba(255, 255, 255, .82);
+	box-shadow: 0 10px 24px rgba(20, 56, 71, .06);
+}
+
+.brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: .08em;
+}
+
+.brand img {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.site-header nav {
+	display: flex;
+	gap: 26px;
+	color: var(--muted);
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.site-header nav a:hover,
+.text-link:hover,
+.toc a:hover {
+	color: var(--teal-dark);
+}
+
+.header-action,
+.primary-button {
+	border-radius: 999px;
+	background: var(--teal);
+	color: var(--white);
+	font-weight: 800;
+}
+
+.header-action {
+	padding: 11px 18px;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+main {
+	width: min(1180px, calc(100% - 48px));
+	margin: 0 auto;
+}
+
+.breathing-hero {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 380px;
+	align-items: center;
+	min-height: 410px;
+	margin-top: 18px;
+	overflow: hidden;
+	border-radius: 24px;
+	background: linear-gradient(100deg, rgba(12, 52, 62, .92), rgba(12, 52, 62, .52)), url("images/breathing_prac.jpg") center / cover;
+}
+
+.hero-copy {
+	position: relative;
+	z-index: 1;
+	max-width: 670px;
+	padding: 70px 8%;
+	color: var(--white);
+}
+
+.eyebrow {
+	margin: 0 0 12px;
+	color: var(--teal-dark);
+	font-size: 11px;
+	font-weight: 900;
+	letter-spacing: .18em;
+}
+
+.hero-copy .eyebrow {
+	color: #c8f2e7;
+}
+
+h1,
+h2,
+h3 {
+	margin-top: 0;
+}
+
+h1 {
+	max-width: 620px;
+	margin-bottom: 18px;
+	font-size: clamp(42px, 6vw, 72px);
+	line-height: .98;
+	letter-spacing: -.04em;
+}
+
+.hero-copy > p:not(.eyebrow) {
+	max-width: 540px;
+	color: rgba(255, 255, 255, .88);
+	font-size: 17px;
+	line-height: 1.65;
+}
+
+.text-link {
+	display: inline-block;
+	margin-top: 18px;
+	color: #d8f4e7;
+	font-size: 14px;
+	font-weight: 800;
+}
+
+.hero-image {
+	align-self: stretch;
+	overflow: hidden;
+}
+
+.hero-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: .8;
+}
+
+.page-layout {
+	display: grid;
+	grid-template-columns: 190px minmax(0, 1fr);
+	gap: 64px;
+	padding: 72px 8% 100px;
+}
+
+.toc {
+	position: sticky;
+	top: 24px;
+	align-self: start;
+	display: grid;
+	gap: 12px;
+}
+
+.toc-label {
+	margin: 0 0 6px;
+	color: var(--teal-dark);
+	font-size: 11px;
+	font-weight: 900;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+
+.toc a {
+	padding-left: 12px;
+	border-left: 2px solid var(--line);
+	color: var(--muted);
+	font-size: 13px;
+	line-height: 1.35;
+}
+
+.practice-section,
+.info-section {
+	padding-bottom: 64px;
+}
+
+.info-section,
+.practice-section + .info-section {
+	padding-top: 26px;
+	border-top: 1px solid var(--line);
+}
+
+.practice-section h2,
+.info-section h2,
+.closing-section h2 {
+	max-width: 730px;
+	margin-bottom: 18px;
+	font-size: clamp(28px, 4vw, 44px);
+	letter-spacing: -.03em;
+}
+
+.section-lead,
+.info-section > p:not(.eyebrow),
+.closing-section > p:not(.eyebrow) {
+	max-width: 720px;
+	color: var(--muted);
+	font-size: 16px;
+	line-height: 1.75;
+}
+
+.box-breathing {
+	margin-top: 28px;
+	padding: 30px;
+	border-radius: 22px;
+	background: linear-gradient(145deg, #294b79, #183555);
+	color: var(--white);
+}
+
+.box-step-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 14px;
+}
+
+.box-step {
+	min-height: 280px;
+	padding: 20px 16px;
+	border: 1px solid rgba(255, 255, 255, .12);
+	border-radius: 16px;
+	background: rgba(255, 255, 255, .13);
+	text-align: center;
+}
+
+.box-step-number {
+	display: block;
+	color: #d6e7ff;
+	font-size: 13px;
+	font-weight: 900;
+	letter-spacing: .12em;
+}
+
+.box-step h3 {
+	margin: 14px 0 8px;
+	font-size: 19px;
+}
+
+.box-step p {
+	margin: 0;
+	color: rgba(255, 255, 255, .8);
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.step-icon {
+	display: grid;
+	place-items: center;
+	width: 78px;
+	height: 78px;
+	margin: 24px auto 0;
+	border: 2px solid rgba(255, 255, 255, .84);
+	border-radius: 50%;
+	color: var(--white);
+	font-size: 27px;
+	font-weight: 700;
+}
+
+.person-icon::before {
+	width: 24px;
+	height: 24px;
+	border: 2px solid currentColor;
+	border-radius: 50%;
+	content: "";
+}
+
+.person-icon::after {
+	position: absolute;
+	width: 34px;
+	height: 20px;
+	margin-top: 42px;
+	border: 2px solid currentColor;
+	border-radius: 20px 20px 0 0;
+	content: "";
+}
+
+.person-icon {
+	position: relative;
+}
+
+.clock-icon {
+	font-size: 26px;
+}
+
+.breath-icon {
+	font-size: 42px;
+}
+
+.box-status {
+	display: grid;
+	justify-items: center;
+	margin-top: 28px;
+	padding-top: 24px;
+	border-top: 1px solid rgba(255, 255, 255, .15);
+	text-align: center;
+}
+
+.box-status .breathing-orb {
+	width: 92px;
+	height: 92px;
+	background: rgba(255, 255, 255, .12);
+}
+
+.box-status .breathing-orb span {
+	width: 54px;
+	height: 54px;
+	background: #55d6c5;
+}
+
+.box-status .phase-label {
+	margin-top: 15px;
+	color: var(--white);
+}
+
+.box-status .time-label {
+	color: rgba(255, 255, 255, .72);
+}
+
+.box-breathing .progress-track {
+	background: rgba(255, 255, 255, .2);
+}
+
+.box-breathing .progress-track span {
+	background: #55d6c5;
+}
+
+.box-breathing .secondary-button {
+	background: rgba(255, 255, 255, .94);
+}
+
+.practice-card {
+	display: grid;
+	justify-items: center;
+	margin-top: 28px;
+	padding: 34px;
+	border-radius: 22px;
+	background: var(--mint);
+	text-align: center;
+}
+
+.breathing-orb {
+	display: grid;
+	place-items: center;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background: rgba(24, 142, 131, .15);
+}
+
+.breathing-orb span {
+	width: 92px;
+	height: 92px;
+	border-radius: 50%;
+	background: var(--teal);
+	box-shadow: 0 12px 25px rgba(17, 103, 95, .2);
+	transition: transform 4s ease-in-out;
+}
+
+.breathing-orb.inhale span { transform: scale(1.35); }
+.breathing-orb.exhale span { transform: scale(.78); }
+
+.phase-label {
+	margin: 22px 0 4px;
+	color: var(--teal-dark);
+	font-size: 22px;
+	font-weight: 800;
+}
+
+.time-label {
+	margin: 0;
+	color: var(--muted);
+	font-size: 14px;
+}
+
+.progress-track {
+	width: min(420px, 100%);
+	height: 8px;
+	margin: 20px 0 24px;
+	overflow: hidden;
+	border-radius: 999px;
+	background: rgba(24, 142, 131, .16);
+}
+
+.progress-track span {
+	display: block;
+	width: 0;
+	height: 100%;
+	border-radius: inherit;
+	background: var(--teal);
+	transition: width .4s ease;
+}
+
+.control-row {
+	display: flex;
+	gap: 10px;
+}
+
+.primary-button,
+.secondary-button {
+	border: 0;
+	cursor: pointer;
+	font: inherit;
+	padding: 13px 20px;
+}
+
+.secondary-button {
+	border-radius: 999px;
+	background: var(--white);
+	color: var(--teal-dark);
+	font-weight: 800;
+}
+
+button:focus-visible,
+a:focus-visible {
+	outline: 3px solid rgba(24, 142, 131, .35);
+	outline-offset: 3px;
+}
+
+.step-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px;
+	margin-top: 30px;
+}
+
+.step-grid article {
+	padding: 22px;
+	border-top: 3px solid var(--teal);
+	background: rgba(255, 255, 255, .72);
+}
+
+.step-grid span {
+	color: var(--teal);
+	font-size: 12px;
+	font-weight: 900;
+}
+
+.step-grid h3 {
+	margin: 24px 0 8px;
+	font-size: 19px;
+}
+
+.step-grid p,
+.reminders li {
+	color: var(--muted);
+	line-height: 1.55;
+}
+
+.reminders ul {
+	display: grid;
+	gap: 13px;
+	max-width: 700px;
+	margin: 0;
+	padding-left: 22px;
+}
+
+.closing-section {
+	padding: 32px;
+	border-radius: 18px;
+	background: var(--teal-dark);
+	color: var(--white);
+}
+
+.closing-section .eyebrow {
+	color: #bcebd8;
+}
+
+.closing-section p:not(.eyebrow) {
+	color: rgba(255, 255, 255, .82);
+}
+
+.light-button {
+	display: inline-block;
+	margin-top: 12px;
+	padding: 13px 20px;
+	border-radius: 999px;
+	background: var(--white);
+	color: var(--teal-dark);
+	font-weight: 800;
+}
+
+@media (max-width: 760px) {
+	.site-header,
+	main { width: calc(100% - 28px); }
+
+	.site-header { flex-wrap: wrap; gap: 14px; padding: 12px 14px; }
+	.site-header nav { display: none; }
+	.brand { font-size: 12px; }
+	.header-action { padding: 9px 12px; font-size: 10px; }
+
+	.breathing-hero { display: block; min-height: 510px; }
+	.hero-copy { padding: 58px 8%; }
+	.hero-image { display: none; }
+
+	.page-layout { display: block; padding: 52px 4% 72px; }
+	.toc { position: static; margin-bottom: 48px; }
+	.step-grid { grid-template-columns: 1fr; }
+	.box-step-grid { grid-template-columns: repeat(2, 1fr); }
+	.box-step { min-height: 240px; }
+	.control-row { flex-wrap: wrap; justify-content: center; }
+}
+
+/* Guided breathing page refinements */
+.breathing-hero {
+	grid-template-columns: minmax(0, 1fr) minmax(300px, 38%);
+	min-height: 470px;
+	background: linear-gradient(100deg, rgba(9, 48, 58, .96), rgba(17, 94, 91, .7));
+	box-shadow: 0 24px 54px rgba(20, 56, 71, .16);
+}
+
+.hero-copy {
+	padding: 76px 8%;
+}
+
+.hero-copy h1 {
+	font-size: clamp(44px, 6vw, 76px);
+}
+
+.hero-image {
+	position: relative;
+	z-index: 0;
+}
+
+.hero-image::after {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(9, 48, 58, .35), rgba(9, 48, 58, .02));
+	content: "";
+}
+
+.hero-image img {
+	display: block;
+	opacity: .88;
+}
+
+.hero-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 18px;
+	padding: 13px 20px;
+	border-radius: 999px;
+	background: var(--white);
+	color: var(--teal-dark);
+	font-size: 14px;
+	font-weight: 800;
+	transition: transform .2s ease, background-color .2s ease;
+}
+
+.hero-cta:hover {
+	transform: translateY(-2px);
+	background: #e1f5ef;
+}
+
+.hero-copy .text-link {
+	margin-left: 14px;
+}
+
+.page-layout {
+	grid-template-columns: 190px minmax(0, 1fr);
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 78px 32px 100px;
+}
+
+.content-column section {
+	scroll-margin-top: 28px;
+}
+
+.toc a.active {
+	border-color: var(--teal);
+	color: var(--teal-dark);
+	font-weight: 800;
+}
+
+.practice-card {
+	position: relative;
+	isolation: isolate;
+	width: 100%;
+	margin-top: 32px;
+	padding: 38px 28px 30px;
+	border: 1px solid rgba(24, 142, 131, .12);
+	background: radial-gradient(circle at 50% 28%, #ffffff 0, #effaf6 42%, #e0f3ed 100%);
+	box-shadow: 0 18px 44px rgba(20, 56, 71, .08);
+}
+
+.breathing-orb {
+	width: 176px;
+	height: 176px;
+	background: rgba(24, 142, 131, .1);
+	box-shadow: 0 0 0 14px rgba(24, 142, 131, .045), 0 0 0 28px rgba(24, 142, 131, .025);
+}
+
+.breathing-orb span {
+	width: 100px;
+	height: 100px;
+	background: linear-gradient(145deg, #25ad9e, #11675f);
+	box-shadow: 0 14px 34px rgba(17, 103, 95, .24);
+	transition: transform 4s ease-in-out;
+}
+
+.breathing-orb.inhale span {
+	transform: scale(1.34);
+}
+
+.breathing-orb.hold span {
+	transform: scale(1.34);
+}
+
+.breathing-orb.exhale span {
+	transform: scale(.78);
+}
+
+.breathing-orb.rest span {
+	transform: scale(.78);
+}
+
+.phase-label {
+	min-height: 30px;
+	margin-top: 26px;
+	font-size: 23px;
+}
+
+.time-label {
+	min-height: 20px;
+}
+
+.progress-track {
+	height: 9px;
+	margin: 20px 0 24px;
+	background: rgba(24, 142, 131, .14);
+}
+
+.progress-track span {
+	background: linear-gradient(90deg, #188e83, #65c9ad);
+}
+
+.control-row {
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.primary-button,
+.secondary-button {
+	min-width: 142px;
+	border-radius: 999px;
+	font-weight: 800;
+	transition: transform .2s ease, background-color .2s ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.light-button:hover {
+	transform: translateY(-2px);
+}
+
+.primary-button:hover {
+	background: var(--teal-dark);
+}
+
+.secondary-button {
+	border: 1px solid var(--line);
+}
+
+.practice-note {
+	max-width: 580px;
+	margin: 20px 0 0;
+	color: var(--muted);
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.step-grid {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.step-grid article {
+	min-height: 180px;
+	padding: 20px;
+	border: 1px solid var(--line);
+	border-top: 3px solid var(--teal);
+	border-radius: 4px 4px 14px 14px;
+	background: rgba(255, 255, 255, .8);
+}
+
+.step-grid article:nth-child(even) {
+	border-top-color: #8bc8b5;
+	background: rgba(228, 245, 240, .78);
+}
+
+.step-grid h3 {
+	margin: 22px 0 8px;
+}
+
+.reminders {
+	padding-top: 26px;
+	border-top: 1px solid var(--line);
+}
+
+.reminders li {
+	padding-left: 4px;
+}
+
+.closing-section {
+	margin-top: 8px;
+	box-shadow: 0 18px 40px rgba(17, 103, 95, .14);
+}
+
+.light-button {
+	transition: transform .2s ease, background-color .2s ease;
+}
+
+@media (max-width: 1000px) {
+	.step-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 760px) {
+	.breathing-hero {
+		display: block;
+		min-height: 520px;
+	}
+
+	.hero-copy {
+		padding: 58px 8%;
+	}
+
+	.hero-image {
+		position: absolute;
+		inset: 0;
+		display: block;
+		opacity: .25;
+	}
+
+	.hero-copy .text-link {
+		display: block;
+		margin: 18px 0 0;
+	}
+
+	.page-layout {
+		padding: 52px 4% 72px;
+	}
+
+	.practice-card {
+		padding: 30px 18px 24px;
+	}
+
+	.step-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: .01ms !important;
+	}
+}
+
+.steps-image {
+	margin: 28px 0 0;
+	overflow: hidden;
+	border: 1px solid var(--line);
+	border-radius: 18px;
+	background: #294b79;
+	box-shadow: 0 16px 36px rgba(20, 56, 71, .12);
+}
+
+.steps-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.breathing-hero {
+	background: linear-gradient(100deg, rgba(12, 52, 62, .9), rgba(12, 52, 62, .5)), url("images/breathing image.webp") center / cover;
+}
+
+.timer-section {
+	margin-top: 20px;
+}
+
+.step-grid article {
+	border-radius: 2px;
+}
+
+@media (max-width: 1000px) {
+	.step-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	.step-grid {
+		grid-template-columns: 1fr;
+	}
+}
+

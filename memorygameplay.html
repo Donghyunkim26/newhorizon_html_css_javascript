@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Memory Match | New Horizon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="memorygame.css">
+    <script src="memorygame.js" defer></script>
+</head>
+
+<body>
+    <main class="memory-page">
+        <a class="back-link" href="gamecategory.html">&#8592; Back to categories</a>
+        <section class="game-screen" aria-labelledby="game-title">
+            <div class="game-heading">
+                <div>
+                    <div class="eyebrow">MEMORY MATCH</div>
+                    <h1 id="game-title">Find the pairs</h1>
+                </div>
+            </div>
+            <div class="game-stats"><span>TIME <strong id="time">60</strong></span><span>MOVES <strong
+                        id="moves">0</strong></span><span>PAIRS <strong id="pairs">0/9</strong></span></div>
+            <div id="board" class="board" aria-label="Memory cards"></div>
+            <p id="message" class="message">Match the healthy food cards.</p>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f8fc;
+    color:#333;
+}
+
+/* Hero Section */
+
+.hero{
+    height:39vh;
+    background:url("images/Aboutusimage.png") center center/cover;
+    position:relative;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,45,90,.65);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.overlay h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.overlay p{
+    font-size:20px;
+    max-width:700px;
+    line-height:1.6;
+}
+
+/* About Section */
+
+.about-container{
+    width:85%;
+    margin:80px auto;
+    display:flex;
+    gap:60px;
+    align-items:center;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.about-image{
+    flex:1;
+}
+
+.about-image img{
+    width:100%;
+    height:100%;
+    margin-left:50px;
+}
+
+.about-content{
+    flex:1;
+    padding:50px;
+}
+
+.about-content h2{
+    color:#0b63ce;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.about-content button{
+    background:#0b63ce;
+    color:white;
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.about-content button:hover{
+    background:#084d9f;
+    transform:translateY(-3px);
+}
+
+/* Features */
+
+.features{
+    width:90%;
+    margin:80px auto;
+    text-align:center;
+}
+
+.features h2{
+    font-size:40px;
+    margin-bottom:50px;
+    color:#0b63ce;
+}
+
+.cards{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:320px;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#0b63ce;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.7;
+}
+
+.about-learn-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.25rem;
+    border-radius: 8px;
+    color: #06253a;
+    background: #5eead4;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.about-learn-link:hover {
+    background: #8af5e5;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.about-container{
+    flex-direction:column;
+}
+
+.overlay h1{
+    font-size:40px;
+}
+
+.overlay p{
+    font-size:18px;
+}
+
+.about-content{
+    padding:35px;
+}
+
+.about-content h2{
+    font-size:32px;
+}
+
+.cards{
+    flex-direction:column;
+    align-items:center;
+}
+
+.card{
+    width:90%;
+}
+
+}

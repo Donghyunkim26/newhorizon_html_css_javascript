@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page-specific and shared stylesheets -->
+    <link rel="stylesheet" href="wellbeing.css">
+    <link rel="stylesheet" href="setting.css">
+    <link rel="stylesheet" href="Horizon_dashboard.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+
+    <title>Wellbeing</title>
+
+    <script src="auth.js"></script>
+
+    <!-- Handles mood selection, stat editing, and notes interactivity. Deferred so it runs after the DOM is parsed. -->
+    <script src="wellbeing.js" defer></script>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- ===================== SIDEBAR ===================== -->
+        <!-- Primary navigation for the whole app; "Wellbeing" is marked active since this is the current page -->
+        <aside class="sidebar">
+
+            <!-- App logo / home link -->
+            <a href="Horizon_home.html" class="sidebar-logo">
+                <i class='bx bxs-leaf'></i>
+                <img class="logo-mark" src="images/Horizon_logo.jpg" alt="New Horizon Logo">
+                <span>NEW HORIZON</span>
+            </a>
+
+            <!-- Main nav links. data-key is used by wellbeing.js/shared JS to highlight the active page -->
+            <nav class="sidebar-nav" aria-label="Dashboard navigation">
+                <a href="Horizon_home.html" class="sidebar-link" data-key="Home">
+                    <i class="bx bx-home"></i> Home
+                </a>
+
+                <a href="Horizon_dashboard.html" class="sidebar-link" data-key="Dashboard">
+                    <i class="bx bx-grid-alt" aria-hidden="true"></i> Dashboard
+                </a>
+
+                <a href="setting.html" class="sidebar-link" data-key="setting">
+                    <i class='bx bx-cog'></i> Setting
+                </a>
+            </nav>
+
+
+        </aside>
+
+        <main class="main wellbeing-main">
+            <header class="wellbeing-hero">
+                <div>
+                    <p class="eyebrow">Daily check-in</p>
+                    <h1>How are you feeling today?</h1>
+                    <p class="hero-copy">A small pause can help you notice what you need next.</p>
+                </div>
+                <div class="hero-mark" aria-hidden="true"><i class="bx bx-heart"></i></div>
+            </header>
+
+            <section class="wellbeing-grid" aria-label="Wellbeing check-in">
+                <article class="wellbeing-panel mood-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">Right now</p>
+                            <h2>Choose your mood</h2>
+                        </div>
+                        <span class="panel-date" id="checkInDate"></span>
+                    </div>
+
+                    <div class="mood-options" role="group" aria-label="Mood options">
+                        <button class="mood-option" type="button" data-mood="Great" aria-label="Feeling great">
+                            <span class="mood-emoji" aria-hidden="true">&#9786;</span><span>Great</span>
+                        </button>
+                        <button class="mood-option" type="button" data-mood="Good" aria-label="Feeling good">
+                            <span class="mood-emoji" aria-hidden="true">&#9785;</span><span>Good</span>
+                        </button>
+                        <button class="mood-option" type="button" data-mood="Okay" aria-label="Feeling okay">
+                            <span class="mood-emoji" aria-hidden="true">&#8226;</span><span>Okay</span>
+                        </button>
+                        <button class="mood-option" type="button" data-mood="Low" aria-label="Feeling low">
+                            <span class="mood-emoji" aria-hidden="true">&#9781;</span><span>Low</span>
+                        </button>
+                        <button class="mood-option" type="button" data-mood="Struggling" aria-label="Struggling today">
+                            <span class="mood-emoji" aria-hidden="true">&#9782;</span><span>Struggling</span>
+                        </button>
+                    </div>
+
+                    <p class="selected-mood" id="selectedMood" aria-live="polite">Select a mood to begin your check-in.
+                    </p>
+                </article>
+
+
+
+                <section class="wellbeing-panel reflection-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">Reflection</p>
+                            <h2>What is on your mind?</h2>
+                        </div>
+                        <i class="bx bx-edit-alt panel-symbol" aria-hidden="true"></i>
+                    </div>
+                    <label class="sr-only" for="reflection">Write a private reflection</label>
+                    <textarea id="reflection" rows="4" maxlength="500"
+                        placeholder="A thought, a win, or something you need today..."></textarea>
+                    <div class="reflection-footer">
+                        <span id="reflectionCount">0 / 500</span>
+                        <button class="save-button" id="saveReflection" type="button"><i class="bx bx-check"></i> Save
+                            reflection</button>
+                    </div>
+                    <p class="save-message" id="saveMessage" aria-live="polite"></p>
+                </section>
+        </main>
+
+    </div>
+
+
+</body>
+
+</html>

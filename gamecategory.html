@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>New Horizon — Games</title>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="gamecategory.css">
+</head>
+
+<body>
+
+	<div class="topbar">
+		<a href="Horizon_home.html" class="brand"><img class="logo" src="images/Horizon_logo.jpg" alt="">NEW HORIZON</a>
+		<a href="explore.html" class="back">Back to Explore <span aria-hidden="true">↗</span></a>
+	</div>
+
+	<div class="hero">
+		<div class="hero-copy">
+			<p class="eyebrow">PLAY WITH PURPOSE</p>
+			<h1>Games &amp; <span>Challenges</span></h1>
+			<p>Learn, train your brain, and earn rewards while you play.</p>
+		</div>
+		<div class="hero-badge"><strong>02</strong><span>Ways to<br>reset</span></div>
+	</div>
+
+	<div class="tabs-bar">
+		<span class="tabs-label">Choose your activity</span>
+		<div class="tabs" id="tabs">
+		<button class="tab active" data-f="all">All</button>
+		</div>
+	</div>
+
+	<div class="grid" id="grid">
+
+		<div class="game" data-cat="quiz">
+			<div class="art" style="background:linear-gradient(135deg,#d6f3e3,#bfe9d1)">
+				<span class="tag" style="background:var(--mint)">✓ Quiz</span>
+				<span class="diff">Hard</span>
+				<img class="icon" src="images/quiz.webp" alt="Quiz">
+			</div>
+			<div class="body">
+				<h3>Health Quiz</h3>
+				<p>Test your knowledge and earn rewards!</p>
+				<div class="meta-row"><span>❓ 10 questions</span><span>⏱ 10s/question</span><span>🏆 Best: 7/10</span>
+				</div>
+				<button class="play" type="button" data-page="healthquiz.html" style="background:var(--mint)">Play Now <span class="arr">→</span></button>
+			</div>
+		</div>
+
+		<div class="game" data-cat="memory">
+			<div class="art" style="background:linear-gradient(135deg,#ffe8bd,#ffd79a)">
+				<span class="blob" style="width:80px;height:80px;background:#fff;top:-15px;left:-15px"></span>
+				<span class="tag" style="background:var(--gold)">🧠 Memory</span>
+				<span class="diff">Medium</span>
+				<img class="icon" src="images/cardmemorymatch.jpg" alt="Memory Match">
+			</div>
+			<div class="body">
+				<h3>Memory Match</h3>
+				<p>Improve your memory while having fun!</p>
+				<div class="meta-row"><span>🃏 12 cards</span><span>⏱ No limit</span><span>🏆 Best: 24 moves</span>
+				</div>
+				<button class="play" type="button" data-page="memorygame.html" style="background:var(--gold)">Play Now <span class="arr">→</span></button>
+			</div>
+		</div>
+
+
+	</div>
+	<script src="gamecategory.js"></script>
+</body>
+
+</html>

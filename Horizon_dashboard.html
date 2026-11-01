@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Horizon — My Profile</title>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+  <link rel="stylesheet" href="Horizon_dashboard.css">
+  <link rel="stylesheet" href="setting.css">
+
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- Sidebar: brand identity and primary page navigation. -->
+    <aside class="sidebar">
+
+      <a href="Horizon_home.html" class="sidebar-logo">
+        <i class='bx bxs-leaf'></i>
+        <img class="logo-mark" src="images/Horizon_logo.jpg" alt="New Horizon Logo">
+        <span>NEW HORIZON</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="Horizon_home.html" class="sidebar-link" data-key="Home">
+          <i class="bx bx-home"></i> Home
+        </a>
+
+        <a href="Horizon_dashboard.html" class="sidebar-link active" data-key="dashboard" aria-current="page">
+          <i class="bx bx-grid-alt" aria-hidden="true"></i> Dashboard
+        </a>
+
+        <a href="setting.html" class="sidebar-link" data-key="setting">
+          <i class='bx bx-cog'></i> Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main dashboard content. -->
+    <main class="main">
+      <!-- Header: greeting, current date, and profile actions. -->
+      <header class="topbar">
+
+        <div>
+          <p class="eyebrow dashboard-eyebrow">Personal dashboard</p>
+          <p class="greeting"><span id="greetingTime">Good morning</span>, <span id="greetingName">there</span> <span class="wave">👋</span></p>
+        </div>
+        <span class="summary-date" id="dashboardDate"></span>
+        <div class="topbar-profile">
+          <button class="topbar-avatar" id="topbarAvatar" type="button" aria-label="Open profile menu"
+            aria-expanded="false" aria-controls="profileMenu">
+            <span class="profile-initials" id="profileInitials" aria-hidden="true">P</span>
+          </button>
+          <div class="profile-menu" id="profileMenu" role="menu" aria-label="Profile menu">
+            <a href="setting.html" role="menuitem"><i class="bx bx-user"></i> View profile</a>
+            <a href="setting.html#account" role="menuitem"><i class="bx bx-cog"></i> Settings</a>
+            <button type="button" data-action="logout" role="menuitem"><i class="bx bx-log-out"></i> Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Welcome panel and shortcut to the daily wellbeing check-in. -->
+      <section class="dashboard-intro">
+        <div>
+          <p class="eyebrow">Your health at a glance</p>
+          <h1>Make today a healthy one.</h1>
+          <p>Check in with yourself, keep your goals close, and celebrate small progress.</p>
+        </div>
+       
+      </section>
+
+      <!-- Progress summary: live totals and the combined seven-day chart. -->
+      <section class="dashboard-summary" aria-label="Dashboard summary">
+        <div class="summary-heading">
+          <div>
+            <p class="eyebrow">Overview</p>
+            <h2>Your progress</h2>
+          </div>
+          <span class="summary-date" id="dashboardDate"></span>
+        </div>
+        <div class="dashboard-stat-grid">
+          <a class="dashboard-stat dashboard-stat-green" href="Horizon_goal.html">
+            <span class="dashboard-stat-icon"><i class="bx bx-target-lock"></i></span>
+            <span><strong id="dashboardGoalsValue">0</strong><small>Active goals</small></span>
+            <i class="bx bx-right-arrow-alt dashboard-stat-arrow" aria-hidden="true"></i>
+          </a>
+        
+          <a class="dashboard-stat dashboard-stat-blue" href="achievement.html">
+            <span class="dashboard-stat-icon"><i class="bx bx-line-chart"></i></span>
+            <span><strong id="dashboardAchievementValue">0</strong><small>Achievements</small></span>
+            <i class="bx bx-right-arrow-alt dashboard-stat-arrow" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <section class="dashboard-goals-preview" aria-labelledby="dashboard-goals-title">
+          <div class="dashboard-goals-heading">
+            <div>
+              <p class="eyebrow">Keep moving forward</p>
+              <h2 id="dashboard-goals-title">Current goals</h2>
+            </div>
+            <a class="text-action" href="Horizon_goal.html">Manage goals <i class="bx bx-arrow-up-right"></i></a>
+          </div>
+          <div class="dashboard-goal-list" id="dashboardGoalList"></div>
+        </section>
+
+        <!-- The dashboard script fills these progress wheels with stored metric data. -->
+        <section class="progress-trend" aria-labelledby="progress-trend-title">
+          <div class="progress-trend-heading">
+            <div>
+              <p class="eyebrow">Last seven days</p>
+              <h2 id="progress-trend-title">Your weekly progress</h2>
+            </div>
+            <div class="progress-trend-tools">
+              <div class="progress-legend" aria-label="Chart legend">
+                <span><i class="legend-dot legend-goals"></i>Goals</span>
+                <span><i class="legend-dot legend-achievements"></i>Achievements</span>
+              </div>
+              <div class="progress-record-action">
+                <button class="progress-record-button" id="recordProgressButton" type="button">Record today</button>
+                <span class="progress-record-status" id="progressRecordStatus" role="status" aria-live="polite"></span>
+              </div>
+            </div>
+          </div>
+          <p class="progress-trend-copy" id="progressTrendSummary">Your goals and achievements over time.</p>
+          <div class="progress-wheel-grid" id="progressChart" role="group" aria-label="Current progress">
+            <article class="progress-wheel-card progress-wheel-goals">
+              <div class="progress-wheel" role="img" aria-label="Goals progress">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="progress-wheel-track" cx="60" cy="60" r="48"></circle>
+                  <circle class="progress-wheel-value" id="goalsWheel" cx="60" cy="60" r="48"></circle>
+                </svg>
+                <strong id="goalsWheelValue">0%</strong>
+              </div>
+              <div><b>Goals</b><span id="goalsWheelDetail">0 active</span></div>
+            </article>
+            <article class="progress-wheel-card progress-wheel-achievements">
+              <div class="progress-wheel" role="img" aria-label="Achievements progress">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="progress-wheel-track" cx="60" cy="60" r="48"></circle>
+                  <circle class="progress-wheel-value" id="achievementsWheel" cx="60" cy="60" r="48"></circle>
+                </svg>
+                <strong id="achievementsWheelValue">0</strong>
+              </div>
+              <div><b>Achievements</b><span id="achievementsWheelDetail">0 earned</span></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- Supporting actions: today's focus and frequently used links. -->
+      <section class="dashboard-lower-grid">
+        <article class="dashboard-focus card">
+          <div class="summary-heading">
+            <div>
+              <p class="eyebrow">Today's focus</p>
+              <h2>Check in with yourself</h2>
+            </div>
+            <i class="bx bx-sun focus-icon" aria-hidden="true"></i>
+          </div>
+          <p class="focus-copy">Select how you feel, write a short reflection, and choose one small action to support your wellbeing today.</p>
+          <a class="text-action" href="wellbeing.html">Start wellbeing check-in <i class="bx bx-arrow-up-right"></i></a>
+        </article>
+
+        <article class="dashboard-next card">
+          <div class="summary-heading">
+            <div>
+              <p class="eyebrow">Quick access</p>
+              <h2>Keep moving</h2>
+            </div>
+          </div>
+          <div class="quick-links">
+            <a href="Horizon_goal.html"><i class="bx bx-target-lock"></i><span>Review goals</span><i
+                class="bx bx-chevron-right"></i></a>
+            <a href="healthyliving.html"><i class="bx bx-book-open"></i><span>Learn something new</span><i
+                class="bx bx-chevron-right"></i></a>
+          </div>
+        </article>
+      </section>
+
+      <!-- Profile details and quick wellbeing activities. -->
+      <section class="profile-grid" id="profile">
+
+        <!-- ============ MY PROFILE CARD ============ -->
+        <div class="card profile-card">
+          <h2 class="card-title">My Profile</h2>
+
+          <div class="profile-photo-area">
+            <div class="profile-photo-frame" id="profilePhotoFrame">
+              <img id="profilePhoto" alt="Profile photo" hidden>
+              <span class="profile-photo-initials" id="profilePhotoInitials">U</span>
+            </div>
+            <label class="photo-upload-button" for="profilePhotoInput">Add photo</label>
+            <input id="profilePhotoInput" class="photo-upload-input" type="file" accept="image/*">
+          </div>
+
+          <dl class="info-list profile-info-list">
+            <div class="info-row">
+              <dt>Full Name</dt>
+              <dd id="profileName">Loading profile...</dd>
+            </div>
+            <div class="info-row">
+              <dt>Email</dt>
+              <dd id="profileEmail">Loading profile...</dd>
+            </div>
+            <div class="info-row">
+              <dt>Phone</dt>
+              <dd id="profilePhone">Not provided</dd>
+            </div>
+            <div class="info-row">
+              <dt>Location</dt>
+              <dd id="profileLocation">Not provided</dd>
+            </div>
+          </dl>
+
+          <a class="btn-edit-profile" id="editProfileBtn" href="setting.html#account">
+            Edit Profile
+          </a>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Shared authentication/profile behavior, followed by dashboard rendering logic. -->
+  <script src="auth.js"></script>
+  <script src="Horizon_dashboard.js"></script>
+</body>
+
+</html>

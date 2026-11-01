@@ -1,0 +1,456 @@
+/* =========================================================
+   NAVIGATION BAR
+   Creates the fixed navigation bar at the top of the page.
+   ========================================================= */
+
+.nav {
+    /* Places logo and navigation items in a row */
+    display: flex;
+
+    /* Vertically centers the navigation items */
+    align-items: center;
+
+    /* Places items on opposite sides */
+    justify-content: space-between;
+
+    /* Adds space inside the navigation bar */
+    padding: 18px 28px;
+
+    /* Keeps navigation visible while scrolling */
+    position: fixed;
+
+    top: 0;
+
+    /* Starts at the center of the screen */
+    left: 50%;
+
+    /* Moves it back by half its width */
+    transform: translateX(-50%);
+
+    /* Leaves space around the navigation */
+    width: calc(100% - 48px);
+
+    max-width: 1280px;
+
+    /* Keeps navigation above other elements */
+    z-index: 100;
+
+    /* Rounds the corners */
+    border-radius: 18px;
+
+    /* Adds space from the top of the page */
+    margin-top: 14px;
+
+    /* Transparent dark background */
+    background: rgba(8, 22, 41, 0.24);
+
+    /* Adds a blur effect behind the navigation */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   Feature card button / Images Fitting
+   ========================================================= */
+img {
+    width: 100%;
+}
+
+.card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #365b8f;
+    background-color: #a4ea34;
+    transition: background-color 0.2s ease, gap 0.2s ease;
+}
+
+.card-btn:hover {
+    background-color: #f9d733;
+    gap: 12px;
+}
+
+.card-btn .btn-arrow {
+    transition: transform 0.2s ease;
+}
+
+.card-btn:hover .btn-arrow {
+    transform: translateX(2px);
+}
+
+/* =========================================================
+   LOGO
+   Controls the website logo and text.
+   ========================================================= */
+
+.logo {
+    display: flex;
+
+    /* Centers logo icon and text vertically */
+    align-items: center;
+
+    /* Space between icon and text */
+    gap: 0.6rem;
+
+    font-size: 1.4rem;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+    /* Slightly increases spacing between letters */
+    letter-spacing: 0.03em;
+}
+
+/* Logo icon */
+
+.logo-mark {
+    color: #ffffff;
+
+    font-size: 1.8rem;
+}
+
+
+/* Makes the highlighted part of the logo turquoise */
+
+.logo span {
+    color: var(--main-color);
+}
+
+/* =========================================================
+   NAVIGATION LINKS
+   Controls the group of links in the navigation bar.
+   ========================================================= */
+
+.navbar {
+    display: flex;
+
+    /* Adds horizontal spacing between navigation links */
+    column-gap: 2rem;
+}
+
+/* Individual navigation links */
+
+.navbar a {
+    font-size: 0.95rem;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+    /* Makes links uppercase */
+    text-transform: uppercase;
+
+    /* Allows the underline effect to be positioned */
+    position: relative;
+
+    /* Smooth colour transition */
+    transition: 0.3s ease;
+}
+
+/* =========================================================
+   NAVIGATION LINK UNDERLINE
+   Creates an animated underline beneath each link.
+   ========================================================= */
+
+.navbar a::after {
+    content: "";
+
+    position: absolute;
+
+    /* Starts the underline at the left */
+    left: 0;
+
+    /* Places it slightly below the text */
+    bottom: -6px;
+
+    /* Starts with no visible width */
+    width: 0;
+
+    height: 2px;
+
+    background: var(--main-color);
+
+    /* Animates the underline when hovered */
+    transition: width 0.3s ease;
+}
+
+
+/* Changes link colour when hovered or active */
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+/* Expands the underline when hovered or active */
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   NAVIGATION CTA BUTTON
+   Styles the call-to-action button in the navigation.
+   ========================================================= */
+
+.nav-cta {
+    padding: 0.9rem 1.6rem;
+
+    /* White border */
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    /* Creates a pill-shaped button */
+    border-radius: 999px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   Styles the Healthy Living heading,descriptions
+   (for sections outside of .content)
+   ========================================================= */
+
+.video-section>h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* =========================================================
+   VIDEO SECTION
+   ========================================================= */
+
+.video-section {
+    min-height: 550px;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.video-section h2 {
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+
+.video-section p {
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+  Picture Section
+   ========================================================= */
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.content img {
+    width: 450px;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 12px;
+}
+
+.text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.text h1 {
+    font-size: 30px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.text p {
+    font-size: 20px;
+    text-align: left;
+    line-height: 1.6;
+    margin-top: 15px;
+    color: #fff3f3;
+}
+
+/* =========================================================
+   FEATURES SECTION
+   ========================================================= */
+
+.features {
+    padding: 80px 20px;
+    text-align: center;
+    background: #f8f9fa;
+}
+
+.features h2 {
+    font-size: 40px;
+    color: #0072f6;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   CARDS CONTAINER
+   ========================================================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   INDIVIDUAL CARD STYLING
+   ========================================================= */
+
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #0072f6;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.card .card-btn {
+    width: auto;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #a4ea34;
+    color: #08111e;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card .card-btn:hover {
+    background-color: #f9d733;
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 15px;
+    }
+
+    .content img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .text h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .text p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .video-section>h1 {
+        font-size: 24px;
+    }
+
+    .video-section>p {
+        font-size: 14px;
+    }
+
+    .video-section h1+p {
+        font-size: 17px;
+    }
+
+    .features {
+        padding: 60px 15px;
+    }
+
+    .features h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+}

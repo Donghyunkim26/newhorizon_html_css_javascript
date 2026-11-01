@@ -1,0 +1,128 @@
+:root {
+    color-scheme: dark;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000;
+    color: #dedede;
+    display: grid;
+    place-items: center;
+}
+
+.training {
+    width: min(100%, 440px);
+    padding: 24px 20px 36px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 16px;
+}
+
+.exercise {
+    width: min(100%, 310px);
+    margin: 0 auto;
+}
+
+svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.crosshair {
+    stroke: #cfcfcf;
+    stroke-width: 2.3;
+    stroke-linecap: round;
+}
+
+.outline {
+    fill: none;
+    stroke: #d0d0d0;
+    stroke-width: 2.4;
+}
+
+.progress {
+    fill: none;
+    stroke: #00f32f;
+    transform: rotate(-90deg);
+    transform-origin: 150px 150px;
+    stroke-linecap: round;
+    stroke-dasharray: 703.717;
+    stroke-dashoffset: 703.717;
+}
+
+.glow {
+    stroke-width: 6;
+    opacity: .75;
+    filter: url(#greenGlow);
+}
+
+.sharp {
+    stroke-width: 2.8;
+}
+
+#movingDot {
+    fill: #e8e8e8;
+}
+
+.status {
+    min-height: 22px;
+    margin: 6px 0 18px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button,
+.back {
+    font: inherit;
+    border-radius: 8px;
+    padding: 10px 17px;
+    cursor: pointer;
+}
+
+button {
+    background: #181818;
+    color: white;
+    border: 1px solid #444;
+}
+
+button:hover {
+    background: #303030;
+}
+
+button:focus-visible,
+.back:focus-visible {
+    outline: 2px solid #39ff5a;
+    outline-offset: 3px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 24px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back:hover {
+    background: #1d4ed8;
+}

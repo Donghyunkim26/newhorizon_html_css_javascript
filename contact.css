@@ -1,0 +1,1293 @@
+/* =========================================================
+   GLOBAL RESET
+   Applies these settings to every element on the page.
+   ========================================================= */
+
+* {
+    /* Removes default browser margin */
+    margin: 0;
+
+    /* Removes default browser padding */
+    padding: 0;
+
+    /* Makes width/height include padding and border */
+    box-sizing: border-box;
+
+    /* Sets Poppins as the main font */
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* =========================================================
+   BODY
+   General layout and background for the website.
+   ========================================================= */
+
+body {
+    /* Makes the body at least the full height of the screen */
+    min-height: 100vh;
+
+    /* Uses Flexbox for positioning */
+    display: flex;
+
+    /* Centers content horizontally */
+    justify-content: center;
+
+    /* Centers content vertically */
+    align-items: center;
+
+    /* Adds space around the main content */
+    padding: 24px;
+
+    /* Light blue/grey gradient background */
+    background: linear-gradient(
+        135deg,
+        #dce1ef 0%,
+        #d2daef 100%
+    );
+}
+
+
+/* =========================================================
+   CONTACT PAGE BODY
+   Special background and layout used on the contact page.
+   ========================================================= */
+
+body.contact-page {
+    /* Uses Flexbox */
+    display: flex;
+
+    /* Arranges children vertically */
+    flex-direction: column;
+
+    /* Centers content vertically */
+    justify-content: center;
+
+    /* Adds a readable overlay on top of a full-cover background image */
+    background:
+        linear-gradient(
+            140deg,
+            rgba(5, 20, 37, 0.56) 0%,
+            rgba(8, 26, 48, 0.38) 45%,
+            rgba(13, 38, 68, 0.26) 100%
+        ),
+        url("images/background.png");
+
+    /* Ensures the image always covers the whole viewport */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* Leaves space for the fixed navigation bar */
+    padding: 116px 24px 32px;
+}
+
+
+/* =========================================================
+   CONTACT NAVIGATION BAR
+   Controls the navigation menu at the top of the page.
+   ========================================================= */
+
+.contact-nav {
+    /* Keeps the navigation visible while scrolling */
+    position: fixed;
+
+    /* Places it at the top */
+    top: 0;
+
+    /* Starts from the left side */
+    left: 50%;
+
+    /* Centers the navigation horizontally */
+    transform: translateX(-50%);
+
+    /* Uses almost the full width */
+    width: calc(100% - 48px);
+
+    /* Prevents the navigation from becoming too wide */
+    max-width: 1280px;
+
+    /* Adds space above the navigation */
+    margin-top: 14px;
+
+    /* Adds space inside the navigation */
+    padding: 18px 28px;
+
+    /* Rounds the navigation corners */
+    border-radius: 18px;
+
+    /* Transparent dark background */
+    background: rgba(8, 22, 41, 0.24);
+
+    /* Creates a blurred glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    /* Adds a subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    /* Uses Flexbox */
+    display: flex;
+
+    /* Places logo on one side and links on the other */
+    justify-content: space-between;
+
+    /* Vertically centers navigation items */
+    align-items: center;
+
+    /* Makes sure navigation stays above other elements */
+    z-index: 100;
+}
+
+
+/* =========================================================
+   CONTACT LOGO
+   ========================================================= */
+
+.contact-logo {
+    /* Displays logo and icon next to each other */
+    display: inline-flex;
+
+    /* Vertically centers them */
+    align-items: center;
+
+    /* Adds space between icon and text */
+    gap: 0.6rem;
+
+    /* Makes logo text white */
+    color: #ffffff;
+
+    /* Removes underline from the link */
+    text-decoration: none;
+
+    /* Makes logo text bold */
+    font-weight: 800;
+
+    /* Slight spacing between letters */
+    letter-spacing: 0.03em;
+
+    /* Logo font size */
+    font-size: 1.4rem;
+}
+
+
+/* Logo icon */
+.contact-logo-mark {
+    /* Makes the icon turquoise */
+    color: #72f2df;
+
+    /* Makes the icon larger */
+    font-size: 1.8rem;
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
+
+.contact-links {
+    /* Places links in a row */
+    display: flex;
+
+    /* Vertically centers links */
+    align-items: center;
+
+    /* Adds space between links */
+    gap: 22px;
+}
+
+
+.contact-links a {
+    /* Makes links white */
+    color: #ffffff;
+
+    /* Removes underline */
+    text-decoration: none;
+
+    /* Makes text bold */
+    font-weight: 600;
+
+    /* Converts text to uppercase */
+    text-transform: uppercase;
+
+    /* Sets link size */
+    font-size: 0.95rem;
+
+    /* Adds slight letter spacing */
+    letter-spacing: 0.02em;
+
+    /* Makes links fully visible */
+    opacity: 1;
+
+    /* Creates an invisible border for hover effect */
+    border-bottom: 2px solid transparent;
+
+    /* Adds space below the text */
+    padding-bottom: 4px;
+}
+
+
+/* Active link and hover effect */
+.contact-links a.active,
+.contact-links a:hover {
+    /* Changes link to turquoise */
+    color: #72f2df;
+
+    /* Shows turquoise underline */
+    border-bottom-color: #72f2df;
+
+    /* Keeps full visibility */
+    opacity: 1;
+}
+
+
+/* =========================================================
+   MAIN LOGIN / REGISTER CARD
+   ========================================================= */
+
+.auth-card {
+    /* Card width is 930px maximum */
+    width: min(930px, 100%);
+
+    /* Minimum height of the card */
+    min-height: 560px;
+
+    /* White background */
+    background: #ffffff;
+
+    /* Rounded corners */
+    border-radius: 32px;
+
+    /* Hides content outside rounded corners */
+    overflow: hidden;
+
+    /* Adds shadow around the card */
+    box-shadow: 0 24px 60px rgba(44, 62, 111, 0.22);
+
+    /* Uses CSS Grid */
+    display: grid;
+
+    /* Creates two equal columns */
+    grid-template-columns: 1fr 1fr;
+
+    /* Centers the card */
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   WELCOME PANEL
+   Left side of the login/register card.
+   ========================================================= */
+
+.welcome-panel {
+    /* Blue background */
+    background: #6f8fe8;
+
+    /* White text */
+    color: #ffffff;
+
+    /* Adds internal spacing */
+    padding: 72px 52px;
+
+    /* Uses Flexbox */
+    display: flex;
+
+    /* Arranges content vertically */
+    flex-direction: column;
+
+    /* Centers content vertically */
+    justify-content: center;
+
+    /* Centers content horizontally */
+    align-items: center;
+
+    /* Centers text */
+    text-align: center;
+
+    /* Creates rounded/curved shape */
+    border-radius: 32px 42% 42% 32px;
+
+    /* Allows positioning of child elements */
+    position: relative;
+
+    /* Prevents content from overflowing */
+    overflow: hidden;
+}
+
+
+
+
+/* =========================================================
+   WELCOME TEXT / COPY
+   Contains the Login and Register welcome messages.
+   ========================================================= */
+
+.welcome-copy {
+    /* Takes the full panel */
+    width: 100%;
+
+    /* Allows absolute positioning */
+    position: absolute;
+
+    /* Fills the parent */
+    inset: 0;
+
+    /* Adds spacing */
+    padding: 72px 52px;
+
+    /* Uses Flexbox */
+    display: flex;
+
+    /* Stacks content vertically */
+    flex-direction: column;
+
+    /* Centers vertically */
+    justify-content: center;
+
+    /* Centers horizontally */
+    align-items: center;
+
+    /* Centers text */
+    text-align: center;
+
+    /* Smoothly changes visibility */
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* Register message starts hidden */
+.register-copy {
+    /* Makes it invisible */
+    opacity: 0;
+
+    /* Prevents interaction while hidden */
+    pointer-events: none;
+
+    /* Moves it slightly to the right */
+    transform: translateX(30px);
+}
+
+
+/* When Register mode is active,
+   hide the Login message. */
+.auth-card.is-register .login-copy {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-30px);
+}
+
+
+/* When Register mode is active,
+   show the Register message. */
+.auth-card.is-register .register-copy {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   WELCOME PANEL HEADING
+   ========================================================= */
+
+.welcome-panel h1 {
+    /* Responsive heading size */
+    font-size: clamp(2rem, 4.2vw, 3rem);
+
+    /* Controls line height */
+    line-height: 1.05;
+
+    /* Space below heading */
+    margin-bottom: 14px;
+
+    /* Slight letter spacing */
+    letter-spacing: 0.2px;
+}
+
+/* Welcome paragraph */
+.welcome-panel p {
+    /* Paragraph size */
+    font-size: 1.08rem;
+
+    /* Slightly transparent */
+    opacity: 0.95;
+
+    /* Space below paragraph */
+    margin-bottom: 28px;
+}
+
+/* =========================================================
+   OUTLINE BUTTON
+   Used for switching between Login and Register.
+   ========================================================= */
+
+.outline-btn {
+    /* Minimum button width */
+    min-width: 175px;
+
+    /* Button height */
+    height: 52px;
+
+    /* White transparent border */
+    border: 2px solid rgba(255, 255, 255, 0.72);
+
+    /* Rounded corners */
+    border-radius: 12px;
+
+    /* White text */
+    color: #ffffff;
+
+    /* Removes underline */
+    text-decoration: none;
+
+    /* Text size */
+    font-size: 1.28rem;
+
+    /* Bold text */
+    font-weight: 600;
+
+    /* Allows centering of button content */
+    display: inline-flex;
+
+    /* Centers horizontally */
+    justify-content: center;
+
+    /* Centers vertically */
+    align-items: center;
+
+    /* Adds smooth hover animation */
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Button used for switching forms */
+.switch-btn {
+    /* Transparent background */
+    background: transparent;
+
+    /* Shows pointer cursor */
+    cursor: pointer;
+}
+
+
+/* Outline button hover effect */
+.outline-btn:hover {
+    /* Slight white background */
+    background-color: rgba(255, 255, 255, 0.12);
+
+    /* Moves button slightly upward */
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   LOGIN / REGISTER PANEL
+   Right side of the card.
+   ========================================================= */
+
+.login-panel {
+    /* Adds internal spacing */
+    padding: 56px 54px;
+
+    /* Uses Flexbox */
+    display: flex;
+
+    /* Centers vertically */
+    align-items: center;
+
+    /* Centers horizontally */
+    justify-content: center;
+
+    /* Allows absolute positioning of forms */
+    position: relative;
+}
+
+
+/* =========================================================
+   AUTHENTICATION FORMS
+   ========================================================= */
+
+.auth-form {
+    /* Form takes full available width */
+    width: 100%;
+
+    /* Prevents form becoming too wide */
+    max-width: 380px;
+
+    /* Centers text */
+    text-align: center;
+
+    /* Adds animation when switching forms */
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* Login form starts visible */
+.login-form {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Register form starts hidden */
+.register-form {
+    /* Allows it to overlap the Login form */
+    position: absolute;
+
+    /* Hidden initially */
+    opacity: 0;
+
+    /* Cannot be clicked while hidden */
+    pointer-events: none;
+
+    /* Moves slightly right */
+    transform: translateX(30px);
+}
+
+
+/* When Register mode is active,
+   hide Login form. */
+.auth-card.is-register .login-form {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-30px);
+}
+
+
+/* When Register mode is active,
+   show Register form. */
+.auth-card.is-register .register-form {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   FORM HEADING
+   ========================================================= */
+
+.auth-form h2 {
+    /* Large heading */
+    font-size: 2.0rem;
+
+    /* Dark text */
+    color: #2b2f3a;
+
+    /* Space below heading */
+    margin-bottom: 30px;
+
+    /* Slight letter spacing */
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   INPUT BOX
+   ========================================================= */
+
+.input-box {
+    /* Allows icon to be positioned inside */
+    position: relative;
+
+    /* Space below each input */
+    margin-bottom: 22px;
+}
+
+
+/* Input fields */
+.input-box input {
+    /* Full width */
+    width: 100%;
+
+    /* Input height */
+    height: 58px;
+
+    /* Removes default border */
+    border: none;
+
+    /* Removes default focus outline */
+    outline: none;
+
+    /* Rounded corners */
+    border-radius: 10px;
+
+    /* Light grey background */
+    background: #f1f2f6;
+
+    /* Dark text */
+    color: #2f3138;
+
+    /* Text size */
+    font-size: 1.28rem;
+
+    /* Space for icon on the right */
+    padding: 0 54px 0 20px;
+}
+
+
+/* Placeholder text */
+.input-box input::placeholder {
+    color: #8f9199;
+}
+
+
+/* Input icon */
+.input-box i {
+    /* Allows exact positioning */
+    position: absolute;
+
+    /* Places icon on right */
+    right: 18px;
+
+    /* Places icon vertically */
+    top: 50%;
+
+    /* Perfectly centers icon */
+    transform: translateY(-50%);
+
+    /* Icon size */
+    font-size: 1.22rem;
+
+    /* Icon colour */
+    color: #8f9199;
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD LINK
+   ========================================================= */
+
+.forgot-link {
+    /* Controls spacing around the link */
+    margin: 4px 0 18px;
+}
+
+
+.forgot-link a {
+    /* Link size */
+    font-size: 1.2rem;
+
+    /* Grey text */
+    color: #5a5e6b;
+
+    /* Removes underline */
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   LOGIN / REGISTER BUTTON
+   ========================================================= */
+
+.login-btn {
+    /* Button fills form width */
+    width: 100%;
+
+    /* Button height */
+    height: 55px;
+
+    /* Removes default border */
+    border: none;
+
+    /* Rounded corners */
+    border-radius: 10px;
+
+    /* Blue button */
+    background: #6f8fe8;
+
+    /* White text */
+    color: #ffffff;
+
+    /* Button text size */
+    font-size: 1.35rem;
+
+    /* Bold text */
+    font-weight: 600;
+
+    /* Pointer cursor */
+    cursor: pointer;
+
+    /* Adds shadow */
+    box-shadow: 0 10px 18px rgba(111, 143, 232, 0.36);
+
+    /* Smooth hover animation */
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+/* Button hover effect */
+.login-btn:hover {
+    /* Slightly darker blue */
+    background: #6083e2;
+
+    /* Moves button slightly upward */
+    transform: translateY(-1px);
+}
+
+.auth-message {
+    min-height: 1.25rem;
+    margin: 14px 0 0;
+    color: #4f535f;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+
+/* =========================================================
+   SOCIAL LOGIN TEXT
+   ========================================================= */
+
+.social-text {
+    /* Adds spacing above and below */
+    margin: 26px 0 14px;
+
+    /* Grey text */
+    color: #4f535f;
+
+    /* Text size */
+    font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   SOCIAL MEDIA ICONS
+   ========================================================= */
+
+.social-icons {
+    /* Places icons in a row */
+    display: flex;
+
+    /* Centers icons */
+    justify-content: center;
+
+    /* Space between icons */
+    gap: 16px;
+}
+
+
+.social-icons a {
+    /* Icon button width */
+    width: 52px;
+
+    /* Icon button height */
+    height: 52px;
+
+    /* Rounded corners */
+    border-radius: 10px;
+
+    /* Light grey border */
+    border: 1.8px solid #d4d7df;
+
+    /* Dark icon colour */
+    color: #262a33;
+
+    /* Removes underline */
+    text-decoration: none;
+
+    /* Icon size */
+    font-size: 1.48rem;
+
+    /* Uses Flexbox */
+    display: inline-flex;
+
+    /* Centers icon horizontally */
+    justify-content: center;
+
+    /* Centers icon vertically */
+    align-items: center;
+
+    /* Smooth hover animation */
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* Social icon hover effect */
+.social-icons a:hover {
+    /* Changes border to blue */
+    border-color: #6f8fe8;
+
+    /* Moves icon slightly upward */
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   Applies when the screen is 920px wide or smaller.
+   This makes the website work better on tablets and phones.
+   ========================================================= */
+
+@media (max-width: 920px) {
+
+    /* -------------------------
+       RESPONSIVE NAVIGATION
+       ------------------------- */
+
+    .contact-nav {
+        /* Smaller width */
+        width: calc(100% - 20px);
+
+        /* Smaller top margin */
+        margin-top: 10px;
+
+        /* Smaller padding */
+        padding: 12px 14px;
+    }
+
+
+    /* Smaller logo */
+    .contact-logo {
+        font-size: 0.9rem;
+    }
+
+
+    /* Smaller gap between navigation links */
+    .contact-links {
+        gap: 14px;
+    }
+
+
+    /* Smaller navigation text */
+    .contact-links a {
+        font-size: 0.8rem;
+    }
+
+
+    /* -------------------------
+       RESPONSIVE AUTH CARD
+       ------------------------- */
+
+    .auth-card {
+        /* Changes from two columns to one column */
+        grid-template-columns: 1fr;
+
+        /* Limits card width */
+        max-width: 520px;
+    }
+
+
+    /* -------------------------
+       RESPONSIVE WELCOME PANEL
+       ------------------------- */
+
+    .welcome-panel {
+        /* Changes the shape for mobile */
+        border-radius: 32px 32px 44% 44%;
+
+        /* Smaller height */
+        min-height: 260px;
+    }
+
+
+    /* Smaller welcome panel padding */
+    .welcome-copy {
+        padding: 48px 28px;
+    }
+
+
+    /* -------------------------
+       RESPONSIVE LOGIN PANEL
+       ------------------------- */
+
+    .login-panel {
+        /* Smaller padding on mobile */
+        padding: 36px 24px 42px;
+    }
+
+
+    /* Smaller form heading */
+    .auth-form h2 {
+        font-size: 2.4rem;
+    }
+
+
+    /* Register form no longer needs absolute positioning */
+    .register-form {
+        position: static;
+    }
+
+
+    /* When register mode is active,
+       completely hide the login form. */
+    .auth-card.is-register .login-form {
+        display: none;
+    }
+
+
+    /* When register mode is active,
+       show the register form. */
+    .auth-card.is-register .register-form {
+        display: block;
+    }
+}
+
+/* =========================================================
+   LOGIN PAGE VISUAL REFRESH
+   ========================================================= */
+
+:root {
+    --auth-ink: #12344a;
+    --auth-muted: #718795;
+    --auth-teal: #159b8e;
+    --auth-teal-dark: #0b756d;
+    --auth-teal-soft: #e4f6f1;
+}
+
+body.contact-page {
+    position: relative;
+    isolation: isolate;
+    background:
+        linear-gradient(135deg, rgba(6, 32, 54, 0.58), rgba(9, 42, 54, 0.26)),
+        url("images/background.png") center / cover no-repeat fixed;
+}
+
+body.contact-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.auth-card {
+    width: min(1040px, 100%);
+    min-height: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 28px 70px rgba(18, 67, 77, 0.16);
+    backdrop-filter: blur(16px);
+}
+
+.welcome-panel {
+    min-height: 600px;
+    padding: 68px 54px;
+    border-radius: 26px 38% 38% 26px;
+    background:
+        linear-gradient(145deg, rgba(21, 155, 142, 0.96), rgba(10, 103, 112, 0.96)),
+        url("images/background.png") center / cover;
+}
+
+.welcome-panel::before,
+.welcome-panel::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.welcome-panel::before {
+    width: 330px;
+    height: 330px;
+    right: -150px;
+    top: -85px;
+}
+
+.welcome-panel::after {
+    width: 230px;
+    height: 230px;
+    left: -125px;
+    bottom: -70px;
+}
+
+.welcome-panel h1 {
+    max-width: 350px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.7rem, 5vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+}
+
+.welcome-panel p {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1rem;
+}
+
+.outline-btn {
+    min-width: 184px;
+    height: 50px;
+    border-color: rgba(255, 255, 255, 0.68);
+    border-radius: 999px;
+    font-size: 1rem;
+}
+
+.outline-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: #fff;
+}
+
+.login-panel {
+    padding: 64px 70px;
+    background: rgba(255, 255, 255, 0.76);
+}
+
+.auth-form {
+    max-width: 390px;
+}
+
+.auth-form h2 {
+    margin-bottom: 34px;
+    color: var(--auth-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.55rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+}
+
+.input-box {
+    margin-bottom: 16px;
+}
+
+.input-box input {
+    height: 56px;
+    border: 1px solid #dbe7e9;
+    border-radius: 12px;
+    background: #f7fbfb;
+    color: var(--auth-ink);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-box input:focus {
+    border-color: var(--auth-teal);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(21, 155, 142, 0.13);
+}
+
+.input-box input::placeholder {
+    color: #91a3ab;
+}
+
+.input-box i {
+    color: #7fa09f;
+    font-size: 1.15rem;
+}
+
+.forgot-link {
+    margin: 5px 0 22px;
+    text-align: right;
+}
+
+.forgot-link a {
+    color: var(--auth-muted);
+    font-size: 0.8rem;
+}
+
+.forgot-link a:hover {
+    color: var(--auth-teal-dark);
+}
+
+.login-btn {
+    height: 54px;
+    border-radius: 11px;
+    background: var(--auth-teal);
+    box-shadow: 0 12px 22px rgba(21, 155, 142, 0.22);
+    font-size: 1rem;
+}
+
+.login-btn:hover {
+    background: var(--auth-teal-dark);
+    box-shadow: 0 15px 26px rgba(21, 155, 142, 0.28);
+}
+
+.social-text {
+    margin: 28px 0 14px;
+    color: var(--auth-muted);
+    font-size: 0.78rem;
+}
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #d6e3e5;
+    border-radius: 11px;
+    color: var(--auth-ink);
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+    border-color: var(--auth-teal);
+    background: var(--auth-teal-soft);
+    color: var(--auth-teal-dark);
+}
+
+.auth-message {
+    color: #bd4054;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 920px) {
+    .auth-card {
+        min-height: 0;
+    }
+
+    .welcome-panel {
+        min-height: 270px;
+        border-radius: 26px 26px 38% 38%;
+    }
+
+    .login-panel {
+        padding: 48px 28px 54px;
+    }
+}
+
+@media (max-width: 520px) {
+    body.contact-page {
+        padding: 24px 14px;
+    }
+
+    .auth-card {
+        border-radius: 20px;
+    }
+
+    .welcome-panel {
+        min-height: 230px;
+        padding: 42px 22px;
+        border-radius: 20px 20px 34% 34%;
+    }
+
+    .welcome-panel h1 {
+        font-size: 2.55rem;
+    }
+
+    .welcome-panel p {
+        margin-bottom: 18px;
+        font-size: 0.9rem;
+    }
+
+    .login-panel {
+        padding: 38px 20px 42px;
+    }
+
+    .auth-form h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Password reset dialog */
+.password-modal[hidden] {
+    display: none;
+}
+
+.password-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.password-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 31, 46, 0.62);
+    backdrop-filter: blur(5px);
+}
+
+.password-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(420px, 100%);
+    padding: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 24px 65px rgba(6, 32, 54, 0.28);
+}
+
+.password-dialog-close {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #eef6f5;
+    color: var(--auth-ink);
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.password-dialog-close:hover {
+    background: var(--auth-teal-soft);
+    color: var(--auth-teal-dark);
+}
+
+.auth-eyebrow {
+    margin-bottom: 7px;
+    color: var(--auth-teal-dark);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.password-dialog h2 {
+    margin-bottom: 8px;
+    color: var(--auth-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.password-dialog-copy {
+    margin-bottom: 22px;
+    color: var(--auth-muted);
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+.password-dialog label {
+    display: block;
+    margin: 14px 0 6px;
+    color: var(--auth-ink);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.password-dialog input {
+    width: 100%;
+    height: 48px;
+    padding: 0 13px;
+    border: 1px solid #dbe7e9;
+    border-radius: 10px;
+    background: #f7fbfb;
+    color: var(--auth-ink);
+    font: inherit;
+}
+
+.password-dialog input:focus {
+    outline: none;
+    border-color: var(--auth-teal);
+    box-shadow: 0 0 0 4px rgba(21, 155, 142, 0.13);
+}
+
+.password-dialog .login-btn {
+    margin-top: 14px;
+}
+
+.reset-message {
+    min-height: 1.2rem;
+    margin-top: 10px;
+    color: #bd4054;
+    font-size: 0.78rem;
+}

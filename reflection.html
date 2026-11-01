@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflection | New Horizon</title>
+    <link rel="stylesheet" href="reflection.css">
+    <link rel="icon" href="images/Horizon_logo.jpg" type="image/x-icon">
+    <script src="reflection.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="Horizon_home.html">
+            <img src="images/Horizon_logo.jpg" alt="New Horizon logo">
+            <span>NEW HORIZON</span>
+        </a>
+        <nav aria-label="Primary navigation">
+            <a href="Horizon_home.html">Home</a>
+            <a href="explore.html">Explore</a>
+            <a href="Horizon_dashboard.html">Dashboard</a>
+        </nav>
+        <a class="header-action" href="contact.html">Contact us</a>
+    </header>
+
+    <main>
+        <section class="reflection-hero" aria-labelledby="page-title">
+            <div class="hero-overlay"></div>
+            <div class="hero-copy">
+                <p class="eyebrow">REFLECTION</p>
+                <h1 id="page-title">Notice how far you have come.</h1>
+                <p>Take a quiet moment to understand your experiences, recognise what you need, and carry one useful
+                    insight into the next part of your day.</p>
+                <a class="primary-action" href="#journal">Begin a check-in</a>
+                <a class="primary-action secondary-action" href="mindfulness.html">Back to mindfulness</a>
+            </div>
+        </section>
+
+        <div class="page-layout">
+            <aside class="toc" aria-label="On this page">
+                <p class="toc-label">On this page</p>
+                <a href="#understand">Why reflect?</a>
+                <a href="#journal">Guided check-in</a>
+                <a href="#take-forward">Take it forward</a>
+            </aside>
+
+            <div class="content-column">
+                <section class="info-section" id="understand" aria-labelledby="understand-title">
+                    <p class="eyebrow">Guided check-in</p>
+                    <h2 id="understand-title">Reflection turns experience into understanding.</h2>
+                    <p>You do not need to analyse everything or find a perfect answer. A few honest questions can help
+                        you notice patterns, name your feelings, and recognise the small choices that support your
+                        wellbeing.</p>
+                    <div class="principle-grid">
+                        <article><span>01</span>
+                            <h3>Be curious</h3>
+                            <p>Notice what happened without judging yourself for how you responded.</p>
+                        </article>
+                        <article><span>02</span>
+                            <h3>Be specific</h3>
+                            <p>Look for one feeling, need, or moment rather than solving everything at once.</p>
+                        </article>
+                        <article><span>03</span>
+                            <h3>Be kind</h3>
+                            <p>Speak to yourself with the same patience you would offer someone you care about.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="featured-reflection" aria-labelledby="verse-title">
+                    <img src="images/bible.jpg" alt="Open book in a peaceful setting">
+                    <div class="featured-copy">
+                        <p class="eyebrow">Verse for reflection</p>
+                        <h2 id="verse-title">“Be still, and know that I am God.”</h2>
+                        <p class="verse-reference">Psalm 46:10 (KJV)</p>
+                        <div class="reflection-notes">
+                            <div><strong>Meaning &amp; reflection</strong><span>Pause beside the words and notice what
+                                    they bring to mind.</span></div>
+                            <div><strong>Think about it</strong><span>What is one thing you can release today?</span>
+                            </div>
+                        </div>
+                        <div class="featured-actions">
+                            <button class="verse-button" id="nextVerse" type="button">Next verse <span
+                                    aria-hidden="true">&#8594;</span></button>
+                            <a class="outline-button" id="bibleLink" <a class="outline-button" id="bibleLink"
+                                href="https://www.bible.com/bible/1/PSA.46.10.KJV" target="_blank"
+                                rel="noopener noreferrer">Read in Bible</a>
+
+                            <a class="outline-button" href="#journal">Write a reflection</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="info-section journal-section" id="journal" aria-labelledby="journal-title">
+                    <p class="eyebrow">Your journal</p>
+                    <h2 id="journal-title">What would be useful to notice today?</h2>
+                    <p>Choose one prompt and write a few words. Your response stays on this page and is not sent
+                        anywhere.</p>
+                    <div class="prompt-list" aria-label="Reflection prompts">
+                        <button class="prompt-button active" type="button"
+                            data-prompt="What is taking up space in my mind right now?">What is on my mind?</button>
+                        <button class="prompt-button" type="button"
+                            data-prompt="What supported me today, even in a small way?">What supported me?</button>
+                        <button class="prompt-button" type="button"
+                            data-prompt="What do I need more or less of tomorrow?">What do I need next?</button>
+                    </div>
+                    <label class="journal-label" for="reflectionText" id="promptLabel">What is taking up space in my
+                        mind right now?</label>
+                    <textarea id="reflectionText" maxlength="500" placeholder="Write a few honest words..."></textarea>
+                    <div class="journal-footer"><span id="characterCount">0 / 500</span><button class="clear-button"
+                            id="clearReflection" type="button">Clear response</button></div>
+                </section>
+
+                <section class="info-section" id="take-forward" aria-labelledby="take-forward-title">
+                    <p class="eyebrow">A gentle next step</p>
+                    <h2 id="take-forward-title">Carry one insight with you.</h2>
+                    <div class="next-step-list">
+                        <div><strong>Name it</strong><span>Put your insight into one clear sentence.</span></div>
+                        <div><strong>Choose it</strong><span>Decide on one small action that matches what you
+                                need.</span></div>
+                        <div><strong>Release it</strong><span>Let the rest wait. You have given this moment your
+                                attention.</span></div>
+                    </div>
+                </section>
+
+                <section class="closing-section">
+                    <p class="eyebrow">Keep exploring</p>
+                    <h2>Self-understanding grows one pause at a time.</h2>
+                    <p>Move gently between reflection, mindfulness, and relaxation depending on what feels supportive
+                        today.</p>
+                    <a class="light-button" href="relax.html">Try relaxation</a>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

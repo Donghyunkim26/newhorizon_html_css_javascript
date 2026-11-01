@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindfulness | New Horizon</title>
+    <link rel="stylesheet" href="mindfulness.css">
+    <link rel="icon" href="images/Horizon_logo.jpg" type="image/x-icon">
+    <script src="mindfulness.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="Horizon_home.html">
+            <img src="images/Horizon_logo.jpg" alt="">
+            <span>NEW HORIZON</span>
+        </a>
+        <nav aria-label="Primary navigation">
+            <a href="Horizon_home.html">Home</a>
+            <a href="Horizon_dashboard.html">Dashboard</a>
+        </nav>
+        <a class="header-action" href="contact.html">Contact us</a>
+    </header>
+
+    <main>
+        <section class="mindfulness-hero" aria-labelledby="page-title">
+            <div class="hero-copy">
+                <p class="eyebrow">MINDFULNESS</p>
+                <h1 id="page-title">Make space for this moment.</h1>
+                <p>Mindfulness is a way of paying attention to what is happening now with curiosity and kindness. It does not require a quiet mind or a perfect routine.</p>
+                <a class="primary-action" href="#grounding">Try a grounding check-in</a>
+                <a class="secondary-action" href="explore.html">Back to explore</a>
+            </div>
+            <div class="hero-breath" aria-hidden="true"><span></span></div>
+        </section>
+
+        <div class="page-layout">
+            <aside class="toc" aria-label="On this page">
+                <p class="toc-label">On this page</p>
+                <a href="#understand">What mindfulness is</a>
+                <a href="#grounding">Grounding practice</a>
+                <a href="#everyday">Everyday moments</a>
+            </aside>
+
+            <div class="content-column">
+                <section class="info-section" id="understand" aria-labelledby="understand-title">
+                    <p class="eyebrow">A gentle practice</p>
+                    <h2 id="understand-title">You can begin exactly where you are.</h2>
+                    <p>Mindfulness means noticing your thoughts, feelings, body, and surroundings without needing to fix everything immediately. A few attentive moments can help you respond instead of rushing on autopilot.</p>
+                    <div class="practice-grid">
+                        <article><span>01</span><h3>Notice</h3><p>Pay attention to one thing you can see, hear, or feel.</p></article>
+                        <article><span>02</span><h3>Allow</h3><p>Let the moment be here without judging yourself for it.</p></article>
+                        <article><span>03</span><h3>Return</h3><p>When your mind wanders, gently bring it back to now.</p></article>
+                    </div>
+                </section>
+
+                <section class="info-section" id="grounding" aria-labelledby="grounding-title">
+                    <div class="section-heading">
+                        <p class="eyebrow">Come back to your surroundings</p>
+                        <h2 id="grounding-title">Try the five-senses check-in.</h2>
+                        <p>Use this practice when your thoughts feel busy. Move slowly through the list and notice what is already around you.</p>
+                    </div>
+                    <div class="sense-list" id="senseList">
+                        <label><input type="checkbox"><span><strong>5 things you can see</strong><small>Look for colour, shape, light, or movement.</small></span></label>
+                        <label><input type="checkbox"><span><strong>4 things you can feel</strong><small>Notice your feet, clothing, temperature, or the chair.</small></span></label>
+                        <label><input type="checkbox"><span><strong>3 things you can hear</strong><small>Listen for sounds close by and further away.</small></span></label>
+                        <label><input type="checkbox"><span><strong>2 things you can smell</strong><small>Notice the air, a drink, soap, or nearby food.</small></span></label>
+                        <label><input type="checkbox"><span><strong>1 thing you appreciate</strong><small>Choose one small detail that feels supportive today.</small></span></label>
+                    </div>
+                    <p class="checklist-status" id="checklistStatus" aria-live="polite">0 of 5 noticed</p>
+                </section>
+
+                <section class="info-section" id="everyday" aria-labelledby="everyday-title">
+                    <p class="eyebrow">Make it part of your day</p>
+                    <h2 id="everyday-title">Mindfulness can fit into ordinary moments.</h2>
+                    <div class="everyday-list">
+                        <div><strong>Before you begin</strong><span>Take one breath before opening a new task or message.</span></div>
+                        <div><strong>While you move</strong><span>Notice your pace, your surroundings, and how your body feels.</span></div>
+                        <div><strong>When you finish</strong><span>Pause for a moment and acknowledge that you made time for yourself.</span></div>
+                    </div>
+                </section>
+
+                <section class="mindfulness-options" aria-labelledby="options-title">
+                    <div class="options-heading">
+                        <p class="eyebrow">Choose your next step</p>
+                        <h2 id="options-title">Find a practice that fits your moment.</h2>
+                    </div>
+                    <div class="option-grid">
+                        <article class="option-card">
+                            <img src="images/breathing_prac.jpg" alt="Person pausing to breathe outdoors">
+                            <div class="option-card-content"><h3>Breathing pause</h3><p>Focus on your breath and allow yourself a moment of calm.</p><a class="option-link" href="breathing.html">Start breathing &#8594;</a></div>
+                        </article>
+                        <article class="option-card">
+                            <img src="images/relax.avif" alt="Person stretching in a relaxation practice">
+                            <div class="option-card-content"><h3>Relaxation</h3><p>Take a moment to relax and release tension in your body and mind.</p><a class="option-link" href="relax.html">Try relaxation &#8594;</a></div>
+                        </article>
+                        <article class="option-card">
+                            <img src="images/reflection.avif" alt="Person reflecting in a notebook">
+                            <div class="option-card-content"><h3>Reflection</h3><p>Take a moment to reflect on your thoughts and experiences.</p><a class="option-link" href="reflection.html">Start reflecting &#8594;</a></div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

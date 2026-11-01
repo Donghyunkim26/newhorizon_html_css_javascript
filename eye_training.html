@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye Training | New Horizon</title>
+  <link rel="stylesheet" href="eye_training.css">
+  <script src="eye_training.js" defer></script>
+</head>
+
+<body>
+  <main class="training" aria-label="Eye training exercise">
+    <h1>Eye Training</h1>
+    <div class="exercise" role="img"
+      aria-label="A white dot moves clockwise around a circle with a glowing green progress arc">
+      <svg viewBox="0 0 300 300" aria-hidden="true">
+        <defs>
+          <filter id="greenGlow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="7" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <line class="crosshair" x1="150" y1="10" x2="150" y2="290" />
+        <line class="crosshair" x1="10" y1="150" x2="290" y2="150" />
+        <circle class="outline" cx="150" cy="150" r="112" />
+        <circle class="progress glow" cx="150" cy="150" r="112" />
+        <circle class="progress sharp" cx="150" cy="150" r="112" />
+        <circle id="movingDot" cx="150" cy="262" r="11" />
+      </svg>
+    </div>
+    <p id="status" class="status" aria-live="polite">Follow the white dot with your eyes.</p>
+    <div class="controls">
+      <button id="startBtn" type="button">Start</button>
+      <button id="pauseBtn" type="button">Pause</button>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+    <a class="back" href="eye.html"> ← Back to eye exercises</a>
+  </main>
+</body>
+
+</html>

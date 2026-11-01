@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Healthy Habits Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="healthquiz.css">
+    <script src="healthquiz.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ============ COVER PAGE ============ -->
+    <div id="cover">
+        <div class="cover-nav">
+            <a class="cover-brand" href="Horizon_home.html"><img src="images/Horizon_logo.jpg" alt=""> NEW HORIZON</a>
+            <button class="cover-home" type="button" onclick="backToGameCategory()">Back to category <span
+                    aria-hidden="true">↗</span></button>
+        </div>
+        <div class="cover-stage">
+            <div class="cover-card">
+                <div class="blob">
+                    <img src="images/Horizon_logo.jpg" alt="New Horizon">
+                </div>
+                <div class="eyebrow">A QUICK WELLBEING CHECK-IN</div>
+                <h1>How healthy are your habits?</h1>
+                <p class="tag">Explore what you know about nutrition, sleep, movement, and stress. Learn something
+                    useful with every answer.</p>
+                <div class="pill-row">
+                    <span class="pill" style="background:var(--mint-l);color:var(--mint)">🥗 Nutrition</span>
+                    <span class="pill" style="background:var(--sky-l,#e7f3fb);color:var(--sky)">😴 Sleep</span>
+                    <span class="pill" style="background:var(--coral-l);color:var(--coral)">🏃 Movement</span>
+                    <span class="pill" style="background:var(--gold-l);color:var(--gold)">🧘 Stress</span>
+                </div>
+                <div class="stat-row">
+                    <div class="stat"><b id="coverCount">7</b><span>Questions</span></div>
+                    <div class="stat"><b>90 sec</b><span>Time limit</span></div>
+                    <div class="stat"><b id="coverBest">0</b><span>Best score</span></div>
+                </div>
+                <button class="btn" onclick="beginQuiz()">Start quiz →</button>
+                <p class="fine">Your best score is saved automatically. No account required.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ QUIZ PAGE ============ -->
+    <div id="quiz">
+        <div class="quiz-header">
+            <div class="eyebrow2">WELLBEING</div>
+            <h1 class="qh1">Healthy Habits Quiz</h1>
+            <p class="sub">Answer all questions, then submit to see your score.</p>
+            <div class="timer-panel" aria-live="polite">
+                <div class="timer-main"><span>TIME LEFT</span><strong id="timerValue">01:30</strong></div>
+                <div class="timer-status"><span id="answerLbl">0 of 7 answered</span><span id="bestLbl">Best score:
+                        0/7</span></div>
+            </div>
+        </div>
+        <div id="results-slot"></div>
+        <div id="qlist"></div>
+        <div class="submit-bar">
+            <button class="btn2" id="submitBtn" disabled onclick="submitQuiz()">Answer all questions</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

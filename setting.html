@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>New Horizon — Settings</title>
+
+  <!-- Boxicons -->
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="Horizon_dashboard.css">
+  <link rel="stylesheet" href="setting.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+
+      <a href="Horizon_home.html" class="sidebar-logo">
+        <i class='bx bxs-leaf'></i>
+        <img class="logo-mark" src="images/Horizon_logo.jpg" alt="New Horizon Logo">
+        <span>NEW HORIZON</span>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav" aria-label="Main navigation">
+
+        <a href="Horizon_home.html" class="sidebar-link" data-key="Home">
+          <i class="bx bx-home"></i>
+          Home
+        </a>
+
+        <a href="Horizon_dashboard.html" class="sidebar-link" data-key="dashboard" data-dashboard-direct>
+          <i class="bx bx-grid-alt" aria-hidden="true"></i>
+          Dashboard
+        </a>
+        
+        <a href="setting.html" class="sidebar-link active" data-key="setting" aria-current="page">
+          <i class="bx bx-cog"></i>
+          Settings
+        </a>
+      </nav>
+
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+
+      <!-- ===================== TOPBAR ===================== -->
+      <header class="topbar">
+
+        <div>
+          <p class="greeting">Settings</p>
+
+          <p class="settings-subtitle">
+            Manage your account, preferences, and privacy
+          </p>
+        </div>
+
+        <div class="topbar-profile">
+          <button class="topbar-avatar" id="topbarAvatar" type="button" aria-label="Open profile menu"
+            aria-expanded="false" aria-controls="profileMenu">
+            <span class="profile-initials" id="profileInitials" aria-hidden="true">U</span>
+          </button>
+          <div class="profile-menu" id="profileMenu" role="menu" aria-label="Profile menu">
+            <a href="Horizon_dashboard.html#profile" role="menuitem"><i class="bx bx-user"></i> View profile</a>
+            <a href="setting.html#profile" role="menuitem"><i class="bx bx-cog"></i> Settings</a>
+            <button type="button" data-action="logout" role="menuitem"><i class="bx bx-log-out"></i> Log out</button>
+          </div>
+        </div>
+
+      </header>
+
+
+      <!-- ===================== SETTINGS LAYOUT ===================== -->
+      <div class="settings-layout">
+
+
+        <!-- ===================== SECTION NAV ===================== -->
+        <nav class="settings-jumpnav" aria-label="Settings sections">
+
+          <a href="#profile" class="jump-link active">
+            Profile
+          </a>
+
+          <a href="#health" class="jump-link">
+            Health details
+          </a>
+
+          <a href="#appearance" class="jump-link">
+            Appearance
+          </a>
+
+          <a href="#connected" class="jump-link">
+            Connected accounts
+          </a>
+
+          <a href="#support" class="jump-link">
+            Support &amp; legal
+          </a>
+
+        </nav>
+
+
+        <!-- ===================== SETTINGS SECTIONS ===================== -->
+        <div class="settings-sections">
+
+
+          <!-- ========================================================= -->
+          <!-- PROFILE -->
+          <!-- ========================================================= -->
+          <section class="card settings-card" id="profile">
+
+            <h2 class="card-title">
+              Profile
+            </h2>
+
+            <div class="field-row">
+              <label for="fullName">
+                Full name
+              </label>
+
+              <input type="text" id="fullName" value="#">
+            </div>
+
+
+            <div class="field-row">
+              <label for="email">
+                Email
+              </label>
+
+              <input type="email" id="email" value="#">
+            </div>
+
+
+            <div class="field-row">
+              <label for="phone">
+                Phone
+              </label>
+
+              <input type="tel" id="phone" value="#">
+            </div>
+
+
+            <div class="field-row">
+              <label for="language">
+                Language
+              </label>
+
+              <select id="language">
+
+                <option selected>
+                  English
+                </option>
+
+                <option>
+                  Māori
+                </option>
+
+                <option>
+                  Spanish
+                </option>
+
+                <option>
+                  French
+                </option>
+
+                <option>
+                  Korean
+                </option>
+
+              </select>
+            </div>
+
+
+            <button class="btn-outline" id="changePasswordBtn" type="button">
+
+              <i class="bx bx-lock-alt"></i>
+
+              Change password
+
+            </button>
+
+          </section>
+
+          <!-- ========================================================= -->
+          <!-- HEALTH DETAILS -->
+          <!-- ========================================================= -->
+          <section class="card settings-card" id="health">
+
+            <h2 class="card-title">
+              Health &amp; personal details
+            </h2>
+
+            <div class="settings-row">
+              <div>
+                <label for="dobDay">Date of birth</label>
+              </div>
+
+              <div class="dob-picker">
+                <select id="dobDay" class="dob-select" aria-label="Day"></select>
+                <select id="dobMonth" class="dob-select" aria-label="Month"></select>
+                <select id="dobYear" class="dob-select" aria-label="Year"></select>
+              </div>
+              <input type="hidden" id="dob" value="10 May 2002">
+            </div>
+
+            <div class="field-row">
+
+              <label for="gender">
+                Gender
+              </label>
+
+              <select id="gender">
+
+                <option selected>
+                  Male
+                </option>
+
+                <option>
+                  Female
+                </option>
+
+                <option>
+                  Non-binary
+                </option>
+
+                <option>
+                  Prefer not to say
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field-row">
+
+              <label for="height">
+                Height
+              </label>
+
+              <select id="height" aria-label="Height">
+                <option value="140 cm">140 cm</option>
+                <option value="145 cm">145 cm</option>
+                <option value="150 cm">150 cm</option>
+                <option value="155 cm">155 cm</option>
+                <option value="160 cm">160 cm</option>
+                <option value="165 cm">165 cm</option>
+                <option value="170 cm">170 cm</option>
+                <option value="175 cm" selected>175 cm</option>
+                <option value="180 cm">180 cm</option>
+                <option value="185 cm">185 cm</option>
+                <option value="190 cm">190 cm</option>
+                <option value="195 cm">195 cm</option>
+                <option value="200 cm">200 cm</option>
+                <option value="205 cm">205 cm</option>
+                <option value="210 cm">210 cm</option>
+              </select>
+
+            </div>
+
+
+            <div class="field-row">
+
+              <label for="weight">
+                Weight
+              </label>
+
+              <select id="weight" aria-label="Weight">
+                <option value="45 kg">45 kg</option>
+                <option value="50 kg">50 kg</option>
+                <option value="55 kg">55 kg</option>
+                <option value="60 kg">60 kg</option>
+                <option value="65 kg">65 kg</option>
+                <option value="68 kg" selected>68 kg</option>
+                <option value="70 kg">70 kg</option>
+                <option value="75 kg">75 kg</option>
+                <option value="80 kg">80 kg</option>
+                <option value="85 kg">85 kg</option>
+                <option value="90 kg">90 kg</option>
+                <option value="95 kg">95 kg</option>
+                <option value="100 kg">100 kg</option>
+                <option value="110 kg">110 kg</option>
+                <option value="120 kg">120 kg</option>
+              </select>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- ========================================================= -->
+          <!-- APPEARANCE -->
+          <!-- ========================================================= -->
+          <section class="card settings-card" id="appearance">
+
+            <h2 class="card-title">
+              Appearance
+            </h2>
+
+
+            <div class="field-row">
+
+              <label for="theme">
+                Theme
+              </label>
+
+              <select id="theme">
+
+                <option selected>
+                  Light
+                </option>
+
+                <option>
+                  Dark
+                </option>
+
+                <option>
+                  System default
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field-row">
+
+              <label for="fontSize">
+                Text size
+              </label>
+
+              <select id="fontSize">
+
+                <option>
+                  Small
+                </option>
+
+                <option selected>
+                  Medium
+                </option>
+
+                <option>
+                  Large
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="setting-option">
+
+              <div>
+
+                <strong>
+                  Reduce animations
+                </strong>
+
+                <p>
+                  Reduce movement and visual animations.
+                </p>
+
+              </div>
+
+              <label class="switch" aria-label="Reduce animations">
+
+                <input type="checkbox" id="reduceAnimations" aria-label="Reduce animations">
+
+                <span class="slider"></span>
+
+              </label>
+
+            </div>
+
+          </section>
+
+
+          <!-- ========================================================= -->
+          <!-- CONNECTED ACCOUNTS -->
+          <!-- ========================================================= -->
+          <section class="card settings-card" id="connected">
+
+            <h2 class="card-title">
+              Connected accounts
+            </h2>
+
+
+            <div class="connected-account">
+
+              <div class="connected-account-brand google-brand" aria-hidden="true">
+                <i class="bx bxl-google"></i>
+              </div>
+
+              <div>
+
+                <strong>
+                  Google
+                </strong>
+
+                <p>
+                  Connect your Google account.
+                </p>
+                <small class="connection-status" id="googleStatus">Not connected</small>
+
+              </div>
+
+              <button class="btn-outline" type="button" id="googleConnectBtn" data-provider-url="https://accounts.google.com/">
+                Connect
+              </button>
+
+            </div>
+
+
+            <div class="connected-account">
+
+              <div class="connected-account-brand facebook-brand" aria-hidden="true">
+                <i class="bx bxl-facebook"></i>
+              </div>
+
+              <div>
+
+                <strong>
+                  Facebook
+                </strong>
+
+                <p>
+                  Sync health and activity information.
+                </p>
+                <small class="connection-status" id="facebookStatus">Not connected</small>
+
+              </div>
+
+              <button class="btn-outline" type="button" id="facebookConnectBtn" data-provider-url="https://www.facebook.com/">
+                Connect
+              </button>
+
+            </div>
+
+
+            <div class="connected-account">
+
+              <div class="connected-account-brand youtube-brand" aria-hidden="true">
+                <i class="bx bxl-youtube"></i>
+              </div>
+
+              <div>
+
+                <strong>
+                  YouTube
+                </strong>
+
+                <p>
+                  Connect your YouTube account.
+                </p>
+                <small class="connection-status" id="youtubeStatus">Not connected</small>
+
+              </div>
+
+              <button class="btn-outline" type="button" id="youtubeConnectBtn" data-provider-url="https://www.youtube.com/">
+                Connect
+              </button>
+
+            </div>
+
+          </section>
+
+
+          <!-- ========================================================= -->
+          <!-- SUPPORT & LEGAL -->
+          <!-- ========================================================= -->
+          <section class="card settings-card" id="support">
+
+            <h2 class="card-title">
+              Support &amp; legal
+            </h2>
+
+
+            <div class="support-link">
+
+              <a href="#" id="helpCenterLink">
+                <i class="bx bx-help-circle"></i>
+
+                Help centre
+              </a>
+
+            </div>
+
+
+            <div class="support-link">
+
+              <a href="#" id="contactSupportLink">
+                <i class="bx bx-message-detail"></i>
+
+                Contact support
+              </a>
+
+            </div>
+
+            <div class="support-link">
+
+              <a href="#" id="privacyPolicyLink">
+                <i class="bx bx-shield"></i>
+
+                Privacy policy
+              </a>
+
+            </div>
+
+            <div class="support-link">
+
+              <a href="#" id="termsLink">
+                <i class="bx bx-file"></i>
+
+                Terms of service
+              </a>
+
+            </div>
+
+            <div class="support-link">
+
+              <a href="#" id="aboutLink">
+                <i class="bx bx-info-circle"></i>
+                About New Horizon
+              </a>
+
+            </div>
+
+          </section>
+
+        </div>
+        <!-- /.settings-sections -->
+
+      </div>
+      <!-- /.settings-layout -->
+
+    </main>
+    <!-- /.main -->
+
+  </div>
+  <!-- /.app -->
+
+  <div class="password-modal" id="changePasswordModal" hidden>
+    <div class="password-modal-backdrop" data-close-password-modal></div>
+    <section class="password-dialog" role="dialog" aria-modal="true" aria-labelledby="changePasswordTitle">
+      <button class="password-dialog-close" type="button" aria-label="Close change password dialog"
+        data-close-password-modal>
+        <i class="bx bx-x" aria-hidden="true"></i>
+      </button>
+      <p class="settings-modal-eyebrow">Account security</p>
+      <h2 id="changePasswordTitle">Change password</h2>
+      <p class="password-dialog-copy">Choose a new password for your New Horizon account.</p>
+      <form id="changePasswordForm">
+        <label for="currentPassword">Current password</label>
+        <input id="currentPassword" type="password" autocomplete="current-password" required>
+        <label for="newPassword">New password</label>
+        <input id="newPassword" type="password" minlength="6" autocomplete="new-password" required>
+        <label for="confirmPassword">Confirm new password</label>
+        <input id="confirmPassword" type="password" minlength="6" autocomplete="new-password" required>
+        <p class="change-password-message" id="changePasswordMessage" role="alert"></p>
+        <button class="btn-primary" type="submit">Update password</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="auth.js"></script>
+  <script src="setting.js"></script>
+
+</body>
+
+</html>

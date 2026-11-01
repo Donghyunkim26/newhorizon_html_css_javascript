@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Leaderboard | New Horizon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="memoryleaderboard.css">
+    <script src="memoryleaderboard.js" defer></script>
+</head>
+
+<body>
+    <main class="results-page">
+        <header class="results-nav">
+            <a class="back-link"
+                href="gamecategory.html">Back to games</a>
+        </header>
+        <section class="results-hero">
+            <div>
+                <div class="eyebrow">MEMORY MATCH COMPLETE</div>
+                <h1>Your result is on the board.</h1>
+                <p>Every pair found is a small win for your focus and wellbeing.</p>
+            </div>
+            <div class="trophy" aria-hidden="true">&#9733;</div>
+        </section>
+        <br>
+        <section class="leaderboard-panel" aria-labelledby="leaderboard-title">
+            <div class="panel-heading">
+                <div>
+                    <div class="eyebrow">TOP PLAYERS</div>
+                    <h2 id="leaderboard-title">Memory Match leaderboard</h2>
+                </div><span class="label">THIS WEEK</span>
+            </div>
+            <div id="leaderboardList" class="leaderboard-list"></div>
+        </section>
+        <div class="actions"><a class="primary-action" href="memorygameplay.html">Play again <span
+                    aria-hidden="true">&#8594;</span></a><a class="secondary-action" href="memorygame.html">Back to main
+                menu</a></div>
+    </main>
+</body>
+
+</html>
